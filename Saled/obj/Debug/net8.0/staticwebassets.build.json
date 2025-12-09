@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Wjg8AVl9E3QWjLZTugH7dau+pCaf2dg+Yc7k4uUIE70=",
+  "Hash": "RkpEqxgG2Udl8L8wOjBTXqELEh+vLRpV2sxE34Iwnf0=",
   "Source": "1",
   "BasePath": "_content/1",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "1\\wwwroot",
       "Source": "1",
-      "ContentRoot": "C:\\Users\\user\\MicrosoftEdgeBackups\\Desktop\\Saled\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\user\\Documents\\git2\\dotnet-webapi\\Saled\\wwwroot\\",
       "BasePath": "_content/1",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\user\\MicrosoftEdgeBackups\\Desktop\\Saled\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\user\\Documents\\git2\\dotnet-webapi\\Saled\\wwwroot\\css\\site.css",
       "SourceId": "1",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\MicrosoftEdgeBackups\\Desktop\\Saled\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\user\\Documents\\git2\\dotnet-webapi\\Saled\\wwwroot\\",
       "BasePath": "_content/1",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -36,10 +36,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\Users\\user\\MicrosoftEdgeBackups\\Desktop\\Saled\\wwwroot\\index.html",
+      "Identity": "C:\\Users\\user\\Documents\\git2\\dotnet-webapi\\Saled\\wwwroot\\index.html",
       "SourceId": "1",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\MicrosoftEdgeBackups\\Desktop\\Saled\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\user\\Documents\\git2\\dotnet-webapi\\Saled\\wwwroot\\",
       "BasePath": "_content/1",
       "RelativePath": "index.html",
       "AssetKind": "All",
@@ -55,10 +55,10 @@
       "OriginalItemSpec": "wwwroot\\index.html"
     },
     {
-      "Identity": "C:\\Users\\user\\MicrosoftEdgeBackups\\Desktop\\Saled\\wwwroot\\js\\site.js",
+      "Identity": "C:\\Users\\user\\Documents\\git2\\dotnet-webapi\\Saled\\wwwroot\\js\\site.js",
       "SourceId": "1",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\MicrosoftEdgeBackups\\Desktop\\Saled\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\user\\Documents\\git2\\dotnet-webapi\\Saled\\wwwroot\\",
       "BasePath": "_content/1",
       "RelativePath": "js/site.js",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
-      "Identity": "C:\\Users\\user\\MicrosoftEdgeBackups\\Desktop\\Saled\\wwwroot\\user.html",
+      "Identity": "C:\\Users\\user\\Documents\\git2\\dotnet-webapi\\Saled\\wwwroot\\user.html",
       "SourceId": "1",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\user\\MicrosoftEdgeBackups\\Desktop\\Saled\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\user\\Documents\\git2\\dotnet-webapi\\Saled\\wwwroot\\",
       "BasePath": "_content/1",
       "RelativePath": "user.html",
       "AssetKind": "All",

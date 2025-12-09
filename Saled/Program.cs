@@ -7,7 +7,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
-builder.Services.AddSingleton<ISaledsService, SaledsService>();
+// Use JSON-backed service (loads/saves `Data/Saled.json`)
+builder.Services.AddSingleton<ISaledsService, SaledServiceJson>();
 builder.Services.AddSingleton<IUserService, UserService>();
 
 var app = builder.Build();

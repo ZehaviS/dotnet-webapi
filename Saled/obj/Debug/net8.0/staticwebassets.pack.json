@@ -1,19 +1,19 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\user\\MicrosoftEdgeBackups\\Desktop\\Saled\\wwwroot\\css\\site.css",
+      "Id": "C:\\Users\\user\\Documents\\git2\\dotnet-webapi\\Saled\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "C:\\Users\\user\\MicrosoftEdgeBackups\\Desktop\\Saled\\wwwroot\\index.html",
+      "Id": "C:\\Users\\user\\Documents\\git2\\dotnet-webapi\\Saled\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },
     {
-      "Id": "C:\\Users\\user\\MicrosoftEdgeBackups\\Desktop\\Saled\\wwwroot\\js\\site.js",
+      "Id": "C:\\Users\\user\\Documents\\git2\\dotnet-webapi\\Saled\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "C:\\Users\\user\\MicrosoftEdgeBackups\\Desktop\\Saled\\wwwroot\\user.html",
+      "Id": "C:\\Users\\user\\Documents\\git2\\dotnet-webapi\\Saled\\wwwroot\\user.html",
       "PackagePath": "staticwebassets\\user.html"
     },
     {
