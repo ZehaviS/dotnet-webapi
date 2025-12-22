@@ -36,8 +36,9 @@ namespace Controllers
             return CreatedAtAction(nameof(Get), new { id = s.Id }, s);
         }
 
+
         [HttpPut("{id}")]
-        public IActionResult Update(int id, Saleds s)
+        public IActionResult Update(int id, [FromBody]Saleds s)
         {
             if (id != s.Id)
                 return BadRequest();

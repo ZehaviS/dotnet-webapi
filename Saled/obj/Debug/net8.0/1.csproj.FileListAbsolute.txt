@@ -166,3 +166,4 @@ C:\Users\user\Documents\git2\dotnet-webapi\Saled\obj\Debug\net8.0\1.csproj.CopyC
 C:\Users\user\Documents\git2\dotnet-webapi\Saled\obj\Debug\net8.0\1.genruntimeconfig.cache
 C:\Users\user\Documents\git2\dotnet-webapi\Saled\obj\Debug\net8.0\ref\1.dll
 C:\Users\user\Documents\git2\dotnet-webapi\Saled\bin\Debug\net8.0\Data\Saled.json
+C:\Users\user\Documents\git2\dotnet-webapi\Saled\bin\Debug\net8.0\Data\User.json

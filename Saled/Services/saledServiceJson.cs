@@ -25,7 +25,7 @@ namespace Services
                 new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true
-                });
+                })?? new List<Saleds>();;
             }
         }
 
