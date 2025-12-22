@@ -9,7 +9,7 @@ builder.Services.AddSwaggerGen();
 
 // Use JSON-backed service (loads/saves `Data/Saled.json`)
 builder.Services.AddSingleton<ISaledsService, SaledServiceJson>();
-builder.Services.AddSingleton<IUserService, UserService>();
+builder.Services.AddSingleton<IUserService, UserServiceJson>();
 
 var app = builder.Build();
 
