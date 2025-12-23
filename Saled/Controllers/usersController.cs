@@ -1,11 +1,15 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using Models;
 using Services;
+using System.Security.Claims;
 
 namespace Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize(Policy = "AllUsers")]
+
     public class UsersController : ControllerBase
     {
         private readonly IUserService _userService;
@@ -30,6 +34,45 @@ namespace Controllers
         }
 
         [HttpPost]
+        [Route("[action]")]
+        [AllowAnonymous]
+        public ActionResult<String> Login([FromBody] User User)
+        {
+            if (User.Name != "אילה")
+            {
+                return Unauthorized();
+            }
+
+            var claims = new List<Claim>
+            {
+                new Claim("username", User.Name),
+                new Claim("type", "Admin"),
+            };
+
+            var token = TokenService.GetToken(claims);
+
+            return new OkObjectResult(TokenService.WriteToken(token));
+        }
+
+        [HttpPost]
+        [Route("[action]")]
+        [Authorize(Policy = "Admin")]
+        public IActionResult GenerateBadge([FromBody] User user)
+        {
+            var claims = new List<Claim>
+            {
+                new Claim("username", user.Name),
+                new Claim("type", "Agent"),
+                new Claim("ClearanceLevel", user.ClearanceLevel.ToString()),
+            };
+
+            var token = TokenService.GetToken(claims);
+
+            return new OkObjectResult(TokenService.WriteToken(token));
+        }
+
+        [HttpPost]
+        [Route("[action]")]
         public IActionResult Create(User u)
         {
             _userService.Add(u);
@@ -37,12 +80,12 @@ namespace Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(int id, User u)
+        public IActionResult Update(string id, User u)
         {
-            if (id != u.Id)
+            if (int.Parse(id) != u.Id)
                 return BadRequest();
 
-            var existing = _userService.Get(id);
+            var existing = _userService.Get(int.Parse(id));
             if (existing == null)
                 return NotFound();
 

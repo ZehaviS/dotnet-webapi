@@ -23,8 +23,7 @@ namespace Services
 
         public List<User> GetAll() => _users;
 
-        public User Get(int id) =>
-            _users.FirstOrDefault(s => s.Id == id);
+        public User Get(int id) =>_users.FirstOrDefault(s => s.Id == id);
 
         public void Add(User user)
         {

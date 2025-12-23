@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<link rel="icon" href="path/to/favicon.ico" type="image/x-icon">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Salad Management</title>
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Salad Management</h1>
+            <h3>Manage your fresh salads</h3>
+        </header>
+
+        <form class="add-form" action="javascript:void(0);" method="POST" onsubmit="addItem()">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="add-name">Salad Name</label>
+                    <input type="text" id="add-name" placeholder="Enter salad name" required>
+                </div>
+                <div class="form-group">
+                    <label for="add-weight">Weight (kg)</label>
+                    <input type="number" id="add-weight" step="0.01" placeholder="Enter weight" required>
+                </div>
+                <button type="submit" class="btn-add">Add Salad</button>
+            </div>
+        </form>
+
+        <div id="editForm">
+            <h3>Edit Salad</h3>
+            <form action="javascript:void(0);" onsubmit="updateItem()">
+                <div class="form-row">
+                    <input type="hidden" id="edit-id">
+                    <div class="form-group">
+                        <label for="edit-name">Salad Name</label>
+                        <input type="text" id="edit-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-weight">Weight (kg)</label>
+                        <input type="number" id="edit-weight" step="0.01" required>
+                    </div>
+                    <button type="submit" class="btn-add">Save Changes</button>
+                </div>
+            </form>
+            <button class="close-btn" onclick="closeInput()" aria-label="Close">&times;</button>
+        </div>
+
+        <p id="counter"></p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Weight (kg)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="saleds"></tbody>
+        </table>
+    </div>
+
+    <script src="js/site.js" asp-append-version="true"></script>
+</body>
+
+</html>

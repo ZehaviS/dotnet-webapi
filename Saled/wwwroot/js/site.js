@@ -13,7 +13,7 @@ function addItem() {
 
     const item = {
         name: addNameTextbox.value.trim(),
-        weight: document.getElementById('add-weight').value.trim(),
+        weight: parseFloat(document.getElementById('add-weight').value.trim()),
     };
 
     fetch(uri, {
@@ -54,7 +54,7 @@ function updateItem() {
     const item = {
         id: parseInt(itemId, 10),
         name: document.getElementById('edit-name').value.trim(),
-        weight: document.getElementById('edit-weight').value.trim()
+        weight: parseFloat(document.getElementById('edit-weight').value.trim())
     };
 
     fetch(`${uri}/${itemId}`, {
@@ -92,31 +92,27 @@ function _displayItems(data) {
     const button = document.createElement('button');
 
     data.forEach(item => {
-        let weightCell = document.createElement('td');
-        weightCell.innerText = item.weight;
-
         let editButton = button.cloneNode(false);
         editButton.innerText = 'Edit';
+        editButton.className = 'btn-edit';
         editButton.setAttribute('onclick', `displayEditForm(${item.id})`);
 
         let deleteButton = button.cloneNode(false);
         deleteButton.innerText = 'Delete';
+        deleteButton.className = 'btn-delete';
         deleteButton.setAttribute('onclick', `deleteItem(${item.id})`);
 
         let tr = tBody.insertRow();
 
         let td1 = tr.insertCell(0);
-        td1.appendChild(weightCell);
+        td1.appendChild(document.createTextNode(item.name));
 
         let td2 = tr.insertCell(1);
-        let textNode = document.createTextNode(item.name);
-        td2.appendChild(textNode);
+        td2.appendChild(document.createTextNode(item.weight));
 
         let td3 = tr.insertCell(2);
         td3.appendChild(editButton);
-
-        let td4 = tr.insertCell(3);
-        td4.appendChild(deleteButton);
+        td3.appendChild(deleteButton);
     });
 
 
