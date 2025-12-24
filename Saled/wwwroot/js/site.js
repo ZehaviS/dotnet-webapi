@@ -87,6 +87,9 @@ function _displayItems(data) {
     const tBody = document.getElementById('saleds');
     tBody.innerHTML = '';
 
+    // keep a reference for edit/delete helpers
+    saleds = data;
+
     _displayCount(data.length);
 
     const button = document.createElement('button');
@@ -117,3 +120,6 @@ function _displayItems(data) {
 
 
 }
+
+// load items when the script is first evaluated
+getItems();
