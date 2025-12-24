@@ -1,8 +1,18 @@
 const uri = '/saleds';
 let saleds = [];
 
+function getAuthHeaders() {
+    const token = localStorage.getItem('token');
+    const headers = {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+    };
+    if (token) headers['Authorization'] = `Bearer ${token}`;
+    return headers;
+}
+
 function getItems() {
-    fetch(uri)
+    fetch(uri, { headers: getAuthHeaders() })
         .then(response => response.json())
         .then(data => _displayItems(data))
         .catch(error => console.error('Unable to get items.', error));
@@ -18,10 +28,7 @@ function addItem() {
 
     fetch(uri, {
         method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
+        headers: getAuthHeaders(),
         body: JSON.stringify(item)
     })
         .then(response => response.json())
@@ -34,7 +41,8 @@ function addItem() {
 
 function deleteItem(id) {
     fetch(`${uri}/${id}`, {
-        method: 'DELETE'
+        method: 'DELETE',
+        headers: getAuthHeaders()
     })
         .then(() => getItems())
         .catch(error => console.error('Unable to delete item.', error));
@@ -59,10 +67,7 @@ function updateItem() {
 
     fetch(`${uri}/${itemId}`, {
         method: 'PUT',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
+        headers: getAuthHeaders(),
         body: JSON.stringify(item)
     })
         .then(() => getItems())
@@ -87,7 +92,6 @@ function _displayItems(data) {
     const tBody = document.getElementById('saleds');
     tBody.innerHTML = '';
 
-    // keep a reference for edit/delete helpers
     saleds = data;
 
     _displayCount(data.length);

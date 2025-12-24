@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Models;
 using Services;
-
+using Microsoft.AspNetCore.Authorization;
 namespace Controllers
 {
     [ApiController]
@@ -20,6 +20,8 @@ namespace Controllers
             _service.GetAll();
 
         [HttpGet("{id}")]
+                [Authorize(Policy = "Admin")]
+
         public ActionResult<Saleds> Get(int id)
         {
             var saled = _service.Get(id);
@@ -30,6 +32,8 @@ namespace Controllers
         }
 
         [HttpPost]
+                [Authorize(Policy = "Admin")]
+
         public IActionResult Create(Saleds s)
         {
             _service.Add(s);
@@ -38,6 +42,7 @@ namespace Controllers
 
 
         [HttpPut("{id}")]
+        [Authorize(Policy = "Admin")]
         public IActionResult Update(int id, [FromBody]Saleds s)
         {
             if (id != s.Id)
@@ -52,6 +57,8 @@ namespace Controllers
         }
 
         [HttpDelete("{id}")]
+                [Authorize(Policy = "Admin")]
+
         public IActionResult Delete(int id)
         {
             var saled = _service.Get(id);

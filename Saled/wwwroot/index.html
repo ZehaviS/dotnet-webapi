@@ -22,11 +22,29 @@
         document.getElementById('loginForm').addEventListener('submit', function (e) {
             e.preventDefault();
             const name = document.getElementById('name').value.trim();
-            if (name === 'אילה') {
+
+            // send credentials to API and store returned JWT in localStorage
+            fetch('/users/login', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name: name })
+            })
+            .then(async resp => {
+                if (!resp.ok) {
+                    throw new Error('Unauthorized');
+                }
+                // API returns a JSON string token, parse it
+                const token = await resp.json();
+                if (!token) throw new Error('No token returned');
+                localStorage.setItem('token', token);
                 window.location.href = 'salad.html';
-            } else {
+            })
+            .catch(err => {
                 document.getElementById('message').textContent = 'Login failed. Only administrators allowed.';
-            }
+            });
         });
     </script>
 </body>
