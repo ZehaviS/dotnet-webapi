@@ -1,19 +1,51 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\user\\Documents\\git2\\dotnet-webapi\\Saled\\wwwroot\\css\\site.css",
+      "Id": "C:\\Users\\user\\Documents\\git2\\dotnet-webapi\\dotnet-webapi\\Saled\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "C:\\Users\\user\\Documents\\git2\\dotnet-webapi\\Saled\\wwwroot\\index.html",
+      "Id": "C:\\Users\\user\\Documents\\git2\\dotnet-webapi\\dotnet-webapi\\Saled\\wwwroot\\css\\styles.css",
+      "PackagePath": "staticwebassets\\css\\styles.css"
+    },
+    {
+      "Id": "C:\\Users\\user\\Documents\\git2\\dotnet-webapi\\dotnet-webapi\\Saled\\wwwroot\\img\\13.jpg",
+      "PackagePath": "staticwebassets\\img\\13.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\Documents\\git2\\dotnet-webapi\\dotnet-webapi\\Saled\\wwwroot\\img\\14.jpg",
+      "PackagePath": "staticwebassets\\img\\14.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\Documents\\git2\\dotnet-webapi\\dotnet-webapi\\Saled\\wwwroot\\img\\5.jpg",
+      "PackagePath": "staticwebassets\\img\\5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\Documents\\git2\\dotnet-webapi\\dotnet-webapi\\Saled\\wwwroot\\img\\7.jpg",
+      "PackagePath": "staticwebassets\\img\\7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\Documents\\git2\\dotnet-webapi\\dotnet-webapi\\Saled\\wwwroot\\img\\9.jpg",
+      "PackagePath": "staticwebassets\\img\\9.jpg"
+    },
+    {
+      "Id": "C:\\Users\\user\\Documents\\git2\\dotnet-webapi\\dotnet-webapi\\Saled\\wwwroot\\img\\‏‏7 - קיצור דרך.lnk",
+      "PackagePath": "staticwebassets\\img\\‏‏7 - קיצור דרך.lnk"
+    },
+    {
+      "Id": "C:\\Users\\user\\Documents\\git2\\dotnet-webapi\\dotnet-webapi\\Saled\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },
     {
-      "Id": "C:\\Users\\user\\Documents\\git2\\dotnet-webapi\\Saled\\wwwroot\\js\\site.js",
+      "Id": "C:\\Users\\user\\Documents\\git2\\dotnet-webapi\\dotnet-webapi\\Saled\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "C:\\Users\\user\\Documents\\git2\\dotnet-webapi\\Saled\\wwwroot\\user.html",
+      "Id": "C:\\Users\\user\\Documents\\git2\\dotnet-webapi\\dotnet-webapi\\Saled\\wwwroot\\salad.html",
+      "PackagePath": "staticwebassets\\salad.html"
+    },
+    {
+      "Id": "C:\\Users\\user\\Documents\\git2\\dotnet-webapi\\dotnet-webapi\\Saled\\wwwroot\\user.html",
       "PackagePath": "staticwebassets\\user.html"
     },
     {
