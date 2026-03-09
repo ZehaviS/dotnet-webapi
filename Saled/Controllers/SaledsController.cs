@@ -6,6 +6,7 @@ namespace Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class SaledsController : ControllerBase
     {
         private readonly ISaledsService _service;
@@ -20,8 +21,6 @@ namespace Controllers
             _service.GetAll();
 
         [HttpGet("{id}")]
-                [Authorize(Policy = "Admin")]
-
         public ActionResult<Saleds> Get(int id)
         {
             var saled = _service.Get(id);
@@ -32,17 +31,15 @@ namespace Controllers
         }
 
         [HttpPost]
-                [Authorize(Policy = "Admin")]
-
+        [Authorize] // כל משתמש מחובר
         public IActionResult Create(Saleds s)
         {
             _service.Add(s);
             return CreatedAtAction(nameof(Get), new { id = s.Id }, s);
         }
 
-
         [HttpPut("{id}")]
-        [Authorize(Policy = "Admin")]
+        [Authorize] // כל משתמש מחובר
         public IActionResult Update(int id, [FromBody]Saleds s)
         {
             if (id != s.Id)
@@ -57,8 +54,6 @@ namespace Controllers
         }
 
         [HttpDelete("{id}")]
-                [Authorize(Policy = "Admin")]
-
         public IActionResult Delete(int id)
         {
             var saled = _service.Get(id);

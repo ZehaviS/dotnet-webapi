@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using Models;
 using Services;
+using System.Linq;
 using System.Security.Claims;
 
 namespace Controllers
@@ -38,14 +39,16 @@ namespace Controllers
         [AllowAnonymous]
         public ActionResult<String> Login([FromBody] User User)
         {
-            if (User.Name != "אילה")
+            var existing = _userService.GetAll().FirstOrDefault(u => u.Name == User.Name);
+            if (existing == null)
             {
                 return Unauthorized();
             }
 
             var claims = new List<Claim>
             {
-                new Claim("username", User.Name),
+                new Claim("Id", existing.Id.ToString()),
+                new Claim("username", existing.Name),
                 new Claim("type", "Admin"),
             };
 

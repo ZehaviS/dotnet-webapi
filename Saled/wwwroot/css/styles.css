@@ -1,3 +1,26 @@
+/* Activity notification popup */
+.activity-popup {
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%) scale(0.95);
+    background: #fffbe6;
+    color: #28a745;
+    border: 2px solid #ffe066;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(40,167,69,0.12);
+    padding: 18px 36px;
+    font-size: 1.3em;
+    font-weight: 700;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s, transform 0.3s;
+}
+.activity-popup.show {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+}
 /* Clean Salad Website Design */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -174,6 +197,14 @@ tr:nth-child(even) {
 tr:hover {
     background-color: #e9ecef;
     transition: background-color 0.3s ease;
+}
+
+.salad-image {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
 }
 
 .btn-edit,

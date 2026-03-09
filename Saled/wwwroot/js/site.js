@@ -22,8 +22,9 @@ function addItem() {
     const addNameTextbox = document.getElementById('add-name');
 
     const item = {
-        name: addNameTextbox.value.trim(),
+        Name: addNameTextbox.value.trim(),
         weight: parseFloat(document.getElementById('add-weight').value.trim()),
+        ImageUrl: ""
     };
 
     fetch(uri, {
@@ -50,19 +51,36 @@ function deleteItem(id) {
 
 function displayEditForm(id) {
     const item = saleds.find(item => item.id === id);
-
-    document.getElementById('edit-name').value = item.name;
-    document.getElementById('edit-id').value = item.id;
-    document.getElementById('edit-weight').value = item.weight;
-    document.getElementById('editForm').style.display = 'block';
+    if (!item) {
+        console.error('Item not found for edit:', id, saleds);
+        return;
+    }
+    const editName = document.getElementById('edit-name');
+    const editId = document.getElementById('edit-id');
+    const editWeight = document.getElementById('edit-weight');
+    const editImageUrl = document.getElementById('edit-imageurl');
+    const editFormDiv = document.getElementById('editForm');
+    console.log('DEBUG: editName', editName, 'editId', editId, 'editWeight', editWeight, 'editImageUrl', editImageUrl, 'editFormDiv', editFormDiv);
+    if (!editName || !editId || !editWeight || !editImageUrl || !editFormDiv) {
+        console.error('Edit form fields missing in DOM:', {editName, editId, editWeight, editImageUrl, editFormDiv});
+        alert('Edit form is not available on this page.');
+        return;
+    }
+    editName.value = item.Name || item.name || '';
+    editId.value = item.id;
+    editWeight.value = item.weight;
+    editImageUrl.value = item.ImageUrl || item.imageUrl || '';
+    editFormDiv.style.display = 'block';
+    console.log('Opening edit form for:', item);
 }
 
 function updateItem() {
     const itemId = document.getElementById('edit-id').value;
     const item = {
         id: parseInt(itemId, 10),
-        name: document.getElementById('edit-name').value.trim(),
-        weight: parseFloat(document.getElementById('edit-weight').value.trim())
+        Name: document.getElementById('edit-name').value.trim(),
+        weight: parseFloat(document.getElementById('edit-weight').value.trim()),
+        ImageUrl: document.getElementById('edit-imageurl').value.trim() || ""
     };
 
     fetch(`${uri}/${itemId}`, {
@@ -74,7 +92,6 @@ function updateItem() {
         .catch(error => console.error('Unable to update item.', error));
 
     closeInput();
-
     return false;
 }
 
@@ -111,13 +128,20 @@ function _displayItems(data) {
 
         let tr = tBody.insertRow();
 
-        let td1 = tr.insertCell(0);
+        let tdImage = tr.insertCell(0);
+        const img = document.createElement('img');
+        img.src = item.imageUrl || 'img/5.jpg';
+        img.alt = item.name;
+        img.className = 'salad-image';
+        tdImage.appendChild(img);
+
+        let td1 = tr.insertCell(1);
         td1.appendChild(document.createTextNode(item.name));
 
-        let td2 = tr.insertCell(1);
+        let td2 = tr.insertCell(2);
         td2.appendChild(document.createTextNode(item.weight));
 
-        let td3 = tr.insertCell(2);
+        let td3 = tr.insertCell(3);
         td3.appendChild(editButton);
         td3.appendChild(deleteButton);
     });
@@ -125,5 +149,38 @@ function _displayItems(data) {
 
 }
 
+// SignalR: connect to activity hub and show fun notifications
+function showActivityNotification(message) {
+    let notif = document.createElement('div');
+    notif.className = 'activity-popup';
+    notif.innerText = message;
+    document.body.appendChild(notif);
+    setTimeout(() => {
+        notif.classList.add('show');
+        setTimeout(() => {
+            notif.classList.remove('show');
+            setTimeout(() => notif.remove(), 500);
+        }, 4000);
+    }, 100);
+}
+
+function setupSignalR() {
+    if (!window.signalR) return;
+    const connection = new signalR.HubConnectionBuilder()
+        .withUrl('/activityHub')
+        .configureLogging(signalR.LogLevel.Information)
+        .build();
+
+    connection.on('ReceiveActivity', function (message) {
+        showActivityNotification(message);
+        getItems();
+    });
+
+    connection.start().catch(function (err) {
+        console.error('SignalR connection error:', err);
+    });
+}
+
 // load items when the script is first evaluated
 getItems();
+setupSignalR();

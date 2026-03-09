@@ -19,16 +19,14 @@
         <input type="submit" value="Add">
     </form>
 
-    <div id="editForm">
-
+    <div id="editForm" style="display:none;">
         <h3>Edit</h3>
-        <form action="javascript:void(0);" onsubmit="updateItem()">
-            <input type="hidden" id="edit-id">
-            <input type="text" id="edit-weight" required>
-            <input type="text" id="edit-name" required>
-            <input type="submit" value="Save">
-            <a onclick="closeInput()" aria-label="Close">&#10006;</a>
-        </form>
+        <input type="hidden" id="edit-id" name="edit-id">
+        <input type="text" id="edit-weight" name="edit-weight" required placeholder="Weight">
+        <input type="text" id="edit-name" name="edit-name" required placeholder="Name">
+        <input type="text" id="edit-imageurl" name="edit-imageurl" placeholder="Image URL">
+        <input type="button" value="Save" onclick="updateItem()">
+        <a onclick="closeInput()" aria-label="Close">&#10006;</a>
     </div>
 
     <p id="counter"></p>
@@ -40,10 +38,10 @@
             <th></th>
             <th></th>
         </tr>
-        <tbody id="users"></tbody>
+        <tbody id="saleds"></tbody>
     </table>
 
-    <script src="js/site.js" asp-append-version="true"></script>
+    <script src="js/site.js?v=9999" asp-append-version="true"></script>
     <script type="text/javascript">
 
       getItems();

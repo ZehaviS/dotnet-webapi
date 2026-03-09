@@ -47,8 +47,15 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
+
 // Use JSON-backed service (loads/saves `Data/Saled.json`)
-builder.Services.AddSingleton<ISaledsService, SaledServiceJson>();
+// Per-user filtering: each request sees only its own records.
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddSignalR();
+builder.Services.AddScoped<IActiveUser, ActiveUserService>();
+builder.Services.AddScoped<ISaledsService, SaledServiceJson>();
+
+// User persistence (used for login + token generation)
 builder.Services.AddSingleton<IUserService, UserServiceJson>();
 
 var app = builder.Build();
@@ -72,5 +79,8 @@ app.UseAuthorization();
 
 
 app.MapControllers();
+
+// SignalR: enable hub endpoint
+app.MapHub<Hubs.ActivityHub>("/activityHub");
 
 app.Run();
