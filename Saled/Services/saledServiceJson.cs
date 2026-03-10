@@ -81,20 +81,43 @@ namespace Services
 
         public void Update(Saleds saled)
         {
-            // Admin can update any salad; others only their own
-            if (!isAdmin && saled.UserId != activeUserId)
-                return;
-
             var existing = Saleds.FirstOrDefault(p => p.Id == saled.Id);
             if (existing is null)
+            {
+                Console.WriteLine($"SaledServiceJson.Update: salad id={saled.Id} not found");
                 return;
+            }
+
+            // If the caller didn't send a UserId (common in client updates), keep the existing one.
+            if (saled.UserId == 0)
+                saled.UserId = existing.UserId;
+
+            // Admin can update any salad; others only their own
+            if (!isAdmin && saled.UserId != activeUserId)
+            {
+                Console.WriteLine($"SaledServiceJson.Update: forbidden update for user {activeUserId} on salad {saled.Id} (owner {saled.UserId})");
+                return;
+            }
 
             if (!isAdmin && existing.UserId != activeUserId)
+            {
+                Console.WriteLine($"SaledServiceJson.Update: forbidden update because existing owner {existing.UserId} != current {activeUserId}");
                 return;
+            }
+
+            Console.WriteLine($"SaledServiceJson.Update: before name={existing.Name} weight={existing.weight} image={existing.ImageUrl}");
+            Console.WriteLine($"SaledServiceJson.Update: after  name={saled.Name} weight={saled.weight} image={saled.ImageUrl}");
 
             var index = Saleds.FindIndex(p => p.Id == saled.Id);
             if (index == -1)
+            {
+                Console.WriteLine($"SaledServiceJson.Update: could not find index for id={saled.Id}");
                 return;
+            }
+
+            // שמור את התמונה הקיימת אם לא נבחרה חדשה
+            if (string.IsNullOrEmpty(saled.ImageUrl))
+                saled.ImageUrl = existing.ImageUrl;
 
             Saleds[index] = saled;
             saveToFile();
@@ -104,9 +127,22 @@ namespace Services
         private async void BroadcastActivity(string message)
         {
             var connections = Hubs.ActivityHub.GetConnectionsForUser(activeUserId);
-            foreach (var connectionId in connections)
+            var connList = connections.Any() ? string.Join(",", connections) : "<none>";
+            var debugMsg = $"BroadcastActivity: userId={activeUserId}, connections={connList}, message={message}";
+            System.Diagnostics.Debug.WriteLine(debugMsg);
+            Console.WriteLine(debugMsg);
+
+            if (connections.Any())
             {
-                await hubContext.Clients.Client(connectionId).SendAsync("ReceiveActivity", message);
+                await hubContext.Clients.Clients(connections).SendAsync("ReceiveActivity", message);
+                await hubContext.Clients.Clients(connections).SendAsync("DebugLog", $"BroadcastActivity: Sent to {connections.Count} connections.");
+            }
+            else
+            {
+                // Fallback: if we don't have tracked connections (e.g., mapping failed)
+                // broadcast to everyone so tabs still get updates.
+                await hubContext.Clients.All.SendAsync("ReceiveActivity", message);
+                await hubContext.Clients.All.SendAsync("DebugLog", $"BroadcastActivity: No connections found for userId={activeUserId}, broadcasting to all.");
             }
         }
 

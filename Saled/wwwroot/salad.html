@@ -3,6 +3,7 @@
 <link rel="icon" href="path/to/favicon.ico" type="image/x-icon">
 
 <head>
+    <script src="https://cdn.jsdelivr.net/npm/@microsoft/signalr@7.0.5/dist/browser/signalr.min.js"></script>
     <meta charset="UTF-8">
     <title>Salad Management</title>
     <link rel="stylesheet" href="css/styles.css" />
@@ -25,6 +26,10 @@
                     <label for="add-weight">Weight (kg)</label>
                     <input type="number" id="add-weight" step="0.01" placeholder="Enter weight" required>
                 </div>
+                <div class="form-group">
+                    <label for="add-imagefile">Upload Image</label>
+                    <input type="file" id="add-imagefile" accept="image/*">
+                </div>
                 <button type="submit" class="btn-add">Add Salad</button>
             </div>
         </form>
@@ -41,6 +46,12 @@
                     <div class="form-group">
                         <label for="edit-weight">Weight (kg)</label>
                         <input type="number" id="edit-weight" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-imageurl">Image URL</label>
+                        <input type="text" id="edit-imageurl">
+                        <label for="edit-imagefile">Upload Image:</label>
+                        <input type="file" id="edit-imagefile" accept="image/*">
                     </div>
                     <button type="submit" class="btn-add">Save Changes</button>
                 </div>

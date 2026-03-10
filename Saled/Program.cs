@@ -1,7 +1,18 @@
 using Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;  // Add this
 using Microsoft.OpenApi.Models;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policy =>
+        policy.SetIsOriginAllowed(_ => true)
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials()
+    );
+});
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -14,6 +25,20 @@ builder.Services
     {
         cfg.RequireHttpsMetadata = false;
         cfg.TokenValidationParameters = TokenService.GetTokenValidationParameters();
+        cfg.Events = new JwtBearerEvents
+        {
+            // SignalR sends the token as access_token in the query string when using WebSockets.
+            OnMessageReceived = context =>
+            {
+                var accessToken = context.Request.Query["access_token"].FirstOrDefault();
+                var path = context.HttpContext.Request.Path;
+                if (!string.IsNullOrEmpty(accessToken) && path.StartsWithSegments("/activityHub"))
+                {
+                    context.Token = accessToken;
+                }
+                return Task.CompletedTask;
+            }
+        };
     });
 
 builder.Services.AddAuthorization(cfg =>
@@ -52,11 +77,7 @@ builder.Services.AddSwaggerGen(c =>
 // Per-user filtering: each request sees only its own records.
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSignalR();
-builder.Services.AddScoped<IActiveUser, ActiveUserService>();
-builder.Services.AddScoped<ISaledsService, SaledServiceJson>();
-
-// User persistence (used for login + token generation)
-builder.Services.AddSingleton<IUserService, UserServiceJson>();
+builder.Services.AddMyServices();
 
 var app = builder.Build();
 
@@ -67,14 +88,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "saled v1"));
 }
 
+
+app.UseCors();
 app.UseDefaultFiles();
-
 app.UseStaticFiles();
-
 app.UseHttpsRedirection();
-
 app.UseAuthentication();
-
 app.UseAuthorization();
 
 

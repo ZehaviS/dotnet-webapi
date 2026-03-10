@@ -1,21 +1,18 @@
-using System.Collections.Concurrent;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Http;
+using Saled.Services;
 
 namespace MyMiddleware;
 
 public class MyLogMiddleware
 {
     private readonly RequestDelegate next;
-    private static readonly ConcurrentQueue<string> logQueue = new();
-    private static readonly CancellationTokenSource cts = new();
-    private static Task? workerTask;
-    private readonly ILogger logger;
+    private readonly ILogQueue logQueue;
 
-    public MyLogMiddleware(RequestDelegate next, ILogger<MyLogMiddleware> logger)
+    public MyLogMiddleware(RequestDelegate next, ILogQueue logQueue)
     {
         this.next = next;
-        this.logger = logger;
-        StartWorker();
+        this.logQueue = logQueue;
     }
 
     public async Task Invoke(HttpContext c)
@@ -23,24 +20,16 @@ public class MyLogMiddleware
         var sw = new Stopwatch();
         sw.Start();
         await next.Invoke(c);
-        var log = $"{c.Request.Path}.{c.Request.Method} took {sw.ElapsedMilliseconds}ms. User: {c.User?.FindFirst("Id")?.Value ?? "unknown"}";
-        logQueue.Enqueue(log);
-    }
-
-    private void StartWorker()
-    {
-        if (workerTask != null) return;
-        workerTask = Task.Run(async () =>
+        sw.Stop();
+        var log = new LogMessage
         {
-            while (!cts.Token.IsCancellationRequested)
-            {
-                while (logQueue.TryDequeue(out var log))
-                {
-                    logger.LogDebug(log);
-                }
-                await Task.Delay(100, cts.Token);
-            }
-        });
+            StartTime = DateTime.UtcNow,
+            Controller = c.Request.Path,
+            Action = c.Request.Method,
+            Username = c.User?.FindFirst("Id")?.Value ?? "unknown",
+            DurationMs = sw.ElapsedMilliseconds
+        };
+        logQueue.Enqueue(log);
     }
 }
 
