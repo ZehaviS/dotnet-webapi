@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.IO;
 using System;
-using System.Net;
 using System.Text.Json;
 using Microsoft.AspNetCore.Hosting;
 
@@ -15,27 +14,26 @@ namespace Services
         private readonly int activeUserId;
         private readonly bool isAdmin;
         private List<Saleds> Saleds { get; }
-        private readonly Microsoft.AspNetCore.SignalR.IHubContext<Hubs.ActivityHub> hubContext;
-        //private IWebHostEnvironment  webHost;
+        private readonly IHubContext<Hubs.ActivityHub> hubContext;
         private string filePath;
+
         public SaledServiceJson(
             IWebHostEnvironment webHost,
             IActiveUser activeUser,
-            Microsoft.AspNetCore.SignalR.IHubContext<Hubs.ActivityHub> hubContext)
+            IHubContext<Hubs.ActivityHub> hubContext)
         {
             this.hubContext = hubContext;
             activeUserId = activeUser.ActiveUser?.Id ?? 0;
             isAdmin = activeUserId == 1; // אילה הוא מנהל ומקבל גישה לכל הסלטים
 
             this.filePath = Path.Combine(webHost.ContentRootPath, "Data", "Saled.json");
+
             using (var jsonFile = File.OpenText(filePath))
             {
                 var content = jsonFile.ReadToEnd();
                 Saleds = JsonSerializer.Deserialize<List<Saleds>>(content,
-                new JsonSerializerOptions
-                {
-                    PropertyNameCaseInsensitive = true
-                }) ?? new List<Saleds>();
+                    new JsonSerializerOptions { PropertyNameCaseInsensitive = true }
+                ) ?? new List<Saleds>();
             }
         }
 
@@ -44,10 +42,9 @@ namespace Services
             var text = JsonSerializer.Serialize(Saleds);
             File.WriteAllText(filePath, text);
         }
+
         public List<Saleds> GetAll() =>
-            isAdmin
-                ? Saleds.ToList()
-                : Saleds.Where(p => p.UserId == activeUserId).ToList();
+            isAdmin ? Saleds.ToList() : Saleds.Where(p => p.UserId == activeUserId).ToList();
 
         public Saleds Get(int id)
         {
@@ -57,7 +54,9 @@ namespace Services
 
         public void Add(Saleds saled)
         {
-            saled.Id = Saleds.Count() + 1;
+            // יצירת ID ייחודי לפי המספר הכי גדול שקיים
+            saled.Id = Saleds.Any() ? Saleds.Max(s => s.Id) + 1 : 1;
+
             saled.UserId = activeUserId;
             Saleds.Add(saled);
             saveToFile();
@@ -67,12 +66,9 @@ namespace Services
         public void Delete(int id)
         {
             var saled = Get(id);
-            if (saled is null)
-                return;
+            if (saled is null) return;
 
-            // Admin can delete any salad; others only their own
-            if (!isAdmin && saled.UserId != activeUserId)
-                return;
+            if (!isAdmin && saled.UserId != activeUserId) return;
 
             Saleds.Remove(saled);
             saveToFile();
@@ -88,11 +84,8 @@ namespace Services
                 return;
             }
 
-            // If the caller didn't send a UserId (common in client updates), keep the existing one.
-            if (saled.UserId == 0)
-                saled.UserId = existing.UserId;
+            if (saled.UserId == 0) saled.UserId = existing.UserId;
 
-            // Admin can update any salad; others only their own
             if (!isAdmin && saled.UserId != activeUserId)
             {
                 Console.WriteLine($"SaledServiceJson.Update: forbidden update for user {activeUserId} on salad {saled.Id} (owner {saled.UserId})");
@@ -105,9 +98,6 @@ namespace Services
                 return;
             }
 
-            Console.WriteLine($"SaledServiceJson.Update: before name={existing.Name} weight={existing.weight} image={existing.ImageUrl}");
-            Console.WriteLine($"SaledServiceJson.Update: after  name={saled.Name} weight={saled.weight} image={saled.ImageUrl}");
-
             var index = Saleds.FindIndex(p => p.Id == saled.Id);
             if (index == -1)
             {
@@ -115,9 +105,7 @@ namespace Services
                 return;
             }
 
-            // שמור את התמונה הקיימת אם לא נבחרה חדשה
-            if (string.IsNullOrEmpty(saled.ImageUrl))
-                saled.ImageUrl = existing.ImageUrl;
+            if (string.IsNullOrEmpty(saled.ImageUrl)) saled.ImageUrl = existing.ImageUrl;
 
             Saleds[index] = saled;
             saveToFile();
@@ -129,7 +117,6 @@ namespace Services
             var connections = Hubs.ActivityHub.GetConnectionsForUser(activeUserId);
             var connList = connections.Any() ? string.Join(",", connections) : "<none>";
             var debugMsg = $"BroadcastActivity: userId={activeUserId}, connections={connList}, message={message}";
-            System.Diagnostics.Debug.WriteLine(debugMsg);
             Console.WriteLine(debugMsg);
 
             if (connections.Any())
@@ -139,8 +126,6 @@ namespace Services
             }
             else
             {
-                // Fallback: if we don't have tracked connections (e.g., mapping failed)
-                // broadcast to everyone so tabs still get updates.
                 await hubContext.Clients.All.SendAsync("ReceiveActivity", message);
                 await hubContext.Clients.All.SendAsync("DebugLog", $"BroadcastActivity: No connections found for userId={activeUserId}, broadcasting to all.");
             }
@@ -148,7 +133,6 @@ namespace Services
 
         private string GetUserName()
         {
-            // אילה היא מנהלת, כל השאר לפי ID
             if (activeUserId == 1) return "אילה";
             if (activeUserId == 2) return "זהבי";
             if (activeUserId == 3) return "מירי";
