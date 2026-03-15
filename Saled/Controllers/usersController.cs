@@ -8,7 +8,7 @@ using System.Security.Claims;
 namespace Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/user")]
     [Authorize(Policy = "AllUsers")]
 
     public class UsersController : ControllerBase
@@ -40,8 +40,7 @@ namespace Controllers
             return user;
         }
 
-        [HttpPost]
-        [Route("[action]")]
+        [HttpPost("/api/login")]
         [AllowAnonymous]
         public ActionResult<String> Login([FromBody] User User)
         {
@@ -51,13 +50,15 @@ namespace Controllers
                 return Unauthorized();
             }
 
-            // קבע את סוג המשתמש לפי הרשאות (למשל, משתמש עם Id=1 הוא Admin)
-            string userType = existing.Id == 1 ? "Admin" : "User";
+            // קבע את סוג המשתמש לפי ClearanceLevel: 1 = מנהל, אחרת משתמש רגיל.
+            string userType = existing.ClearanceLevel == 1 ? "Admin" : "User";
             var claims = new List<Claim>
             {
                 new Claim("Id", existing.Id.ToString()),
                 new Claim("username", existing.Name),
+                new Claim(ClaimTypes.Name, existing.Name),
                 new Claim("type", userType),
+                new Claim("ClearanceLevel", existing.ClearanceLevel.ToString()),
             };
 
             var token = TokenService.GetToken(claims);
@@ -101,7 +102,7 @@ namespace Controllers
                 return NotFound();
 
             var currentUser = _activeUser.ActiveUser;
-            bool isAdmin = User.HasClaim("type", "Admin");
+            bool isAdmin = User.HasClaim("type", "Admin") || User.HasClaim("ClearanceLevel", "1");
             if (!isAdmin && currentUser.Id != userId)
                 return Forbid();
 

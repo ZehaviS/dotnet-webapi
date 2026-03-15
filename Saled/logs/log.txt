@@ -1,0 +1,291 @@
+2026-03-15 14:07:15.653 +02:00 [INF] User profile is available. Using 'C:\Users\1\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-03-15 14:07:15.746 +02:00 [INF] Now listening on: http://localhost:5066
+2026-03-15 14:07:15.749 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-15 14:07:15.749 +02:00 [INF] Hosting environment: Development
+2026-03-15 14:07:15.749 +02:00 [INF] Content root path: C:\Users\1\Desktop\dotnet-webapi\dotnet-webapi\Saled
+2026-03-15 14:08:01.596 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5066/salad.html - null null
+2026-03-15 14:08:01.622 +02:00 [INF] The file /salad.html was not modified
+2026-03-15 14:08:01.627 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5066/salad.html - 304 null text/html 32.4535ms
+2026-03-15 14:08:01.638 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5066/js/site.js?v=2 - null null
+2026-03-15 14:08:01.648 +02:00 [INF] Sending file. Request path: '/js/site.js'. Physical path: 'C:\Users\1\Desktop\dotnet-webapi\dotnet-webapi\Saled\wwwroot\js\site.js'
+2026-03-15 14:08:01.648 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5066/js/site.js?v=2 - 200 12270 text/javascript 10.6616ms
+2026-03-15 14:08:01.649 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5066/api/item - application/json null
+2026-03-15 14:08:01.651 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5066/activityHub/negotiate?negotiateVersion=1 - null 0
+2026-03-15 14:08:01.654 +02:00 [INF] CORS policy execution successful.
+2026-03-15 14:08:01.654 +02:00 [WRN] Failed to determine the https port for redirect.
+2026-03-15 14:08:01.752 +02:00 [INF] Executing endpoint 'Controllers.SaledsController.GetAll (1)'
+2026-03-15 14:08:01.752 +02:00 [INF] Executing endpoint '/activityHub/negotiate'
+2026-03-15 14:08:01.765 +02:00 [INF] Executed endpoint '/activityHub/negotiate'
+2026-03-15 14:08:01.767 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5066/activityHub/negotiate?negotiateVersion=1 - 200 316 application/json 115.8933ms
+2026-03-15 14:08:01.769 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5066/activityHub?id=zwTy_pfqvmWHff4Qe_fDKw&access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjQiLCJ1c2VybmFtZSI6Itee15nXqNeZIiwidHlwZSI6IlVzZXIiLCJleHAiOjE3NzYxNTg2NDIsImlzcyI6Imh0dHBzOi8vc2FsZWRzLmNvbSIsImF1ZCI6Imh0dHBzOi8vc2FsZWRzLmNvbSJ9.W5rYTXuERxwBIRQS-tIbmTf-JQCqweofiJRidYReurA - null null
+2026-03-15 14:08:01.769 +02:00 [INF] CORS policy execution successful.
+2026-03-15 14:08:01.776 +02:00 [INF] Executing endpoint '/activityHub'
+2026-03-15 14:08:01.781 +02:00 [INF] Route matched with {action = "GetAll", controller = "Saleds"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Models.Saleds]] GetAll(System.Nullable`1[System.Int32]) on controller Controllers.SaledsController (1).
+2026-03-15 14:08:01.831 +02:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Models.Saleds, 1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-15 14:08:01.848 +02:00 [INF] Executed action Controllers.SaledsController.GetAll (1) in 60.5033ms
+2026-03-15 14:08:01.848 +02:00 [INF] Executed endpoint 'Controllers.SaledsController.GetAll (1)'
+2026-03-15 14:08:01.848 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5066/api/item - 200 null application/json; charset=utf-8 199.0072ms
+2026-03-15 14:08:03.079 +02:00 [INF] Executed endpoint '/activityHub'
+2026-03-15 14:08:03.081 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5066/activityHub?id=zwTy_pfqvmWHff4Qe_fDKw&access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjQiLCJ1c2VybmFtZSI6Itee15nXqNeZIiwidHlwZSI6IlVzZXIiLCJleHAiOjE3NzYxNTg2NDIsImlzcyI6Imh0dHBzOi8vc2FsZWRzLmNvbSIsImF1ZCI6Imh0dHBzOi8vc2FsZWRzLmNvbSJ9.W5rYTXuERxwBIRQS-tIbmTf-JQCqweofiJRidYReurA - 101 null null 1311.7879ms
+2026-03-15 14:08:04.730 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5066/users/login - application/json 19
+2026-03-15 14:08:04.730 +02:00 [INF] CORS policy execution successful.
+2026-03-15 14:08:04.731 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5066/users/login - 404 0 null 1.3518ms
+2026-03-15 14:08:04.732 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5066/users/login, Response status code: 404
+2026-03-15 14:08:06.031 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5066/users/login - application/json 19
+2026-03-15 14:08:06.032 +02:00 [INF] CORS policy execution successful.
+2026-03-15 14:08:06.033 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5066/users/login - 404 0 null 1.268ms
+2026-03-15 14:08:06.033 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5066/users/login, Response status code: 404
+2026-03-15 14:08:17.060 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5066/salad.html - null null
+2026-03-15 14:08:17.060 +02:00 [INF] The file /salad.html was not modified
+2026-03-15 14:08:17.060 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5066/salad.html - 304 null text/html 0.7233ms
+2026-03-15 14:08:17.075 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5066/js/site.js?v=2 - null null
+2026-03-15 14:08:17.076 +02:00 [INF] Sending file. Request path: '/js/site.js'. Physical path: 'C:\Users\1\Desktop\dotnet-webapi\dotnet-webapi\Saled\wwwroot\js\site.js'
+2026-03-15 14:08:17.077 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5066/js/site.js?v=2 - 200 12270 text/javascript 2.1041ms
+2026-03-15 14:08:17.080 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5066/api/item - application/json null
+2026-03-15 14:08:17.081 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5066/activityHub/negotiate?negotiateVersion=1 - null 0
+2026-03-15 14:08:17.081 +02:00 [INF] CORS policy execution successful.
+2026-03-15 14:08:17.082 +02:00 [INF] Executing endpoint 'Controllers.SaledsController.GetAll (1)'
+2026-03-15 14:08:17.082 +02:00 [INF] Executing endpoint '/activityHub/negotiate'
+2026-03-15 14:08:17.083 +02:00 [INF] Route matched with {action = "GetAll", controller = "Saleds"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Models.Saleds]] GetAll(System.Nullable`1[System.Int32]) on controller Controllers.SaledsController (1).
+2026-03-15 14:08:17.083 +02:00 [INF] Executed endpoint '/activityHub/negotiate'
+2026-03-15 14:08:17.083 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5066/activityHub/negotiate?negotiateVersion=1 - 200 316 application/json 1.8238ms
+2026-03-15 14:08:17.086 +02:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Models.Saleds, 1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-15 14:08:17.086 +02:00 [INF] Executed action Controllers.SaledsController.GetAll (1) in 3.0763ms
+2026-03-15 14:08:17.086 +02:00 [INF] Executed endpoint 'Controllers.SaledsController.GetAll (1)'
+2026-03-15 14:08:17.086 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5066/api/item - 200 null application/json; charset=utf-8 5.974ms
+2026-03-15 14:08:17.086 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5066/activityHub?id=LKmW4ts-lMX1acLMHYVuJQ&access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjUiLCJ1c2VybmFtZSI6IteW15TXkdeZIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IteW15TXkdeZIiwidHlwZSI6IlVzZXIiLCJDbGVhcmFuY2VMZXZlbCI6IjAiLCJleHAiOjE3NzYxNjQ1ODMsImlzcyI6Imh0dHBzOi8vc2FsZWRzLmNvbSIsImF1ZCI6Imh0dHBzOi8vc2FsZWRzLmNvbSJ9.7nSOPs0pLcKihj7Gme3Zn0RuC1ee-Cbh0wFk7Tvl2bE - null null
+2026-03-15 14:08:17.086 +02:00 [INF] CORS policy execution successful.
+2026-03-15 14:08:17.087 +02:00 [INF] Executing endpoint '/activityHub'
+2026-03-15 14:08:17.089 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5066/img/salad_639091802127254972.JPG - null null
+2026-03-15 14:08:17.091 +02:00 [INF] The file /img/salad_639091802127254972.JPG was not modified
+2026-03-15 14:08:17.091 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5066/img/salad_639091802127254972.JPG - 304 null image/jpeg 1.8368ms
+2026-03-15 14:08:18.487 +02:00 [INF] Executed endpoint '/activityHub'
+2026-03-15 14:08:18.487 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5066/activityHub?id=LKmW4ts-lMX1acLMHYVuJQ&access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjUiLCJ1c2VybmFtZSI6IteW15TXkdeZIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IteW15TXkdeZIiwidHlwZSI6IlVzZXIiLCJDbGVhcmFuY2VMZXZlbCI6IjAiLCJleHAiOjE3NzYxNjQ1ODMsImlzcyI6Imh0dHBzOi8vc2FsZWRzLmNvbSIsImF1ZCI6Imh0dHBzOi8vc2FsZWRzLmNvbSJ9.7nSOPs0pLcKihj7Gme3Zn0RuC1ee-Cbh0wFk7Tvl2bE - 101 null null 1401.0798ms
+2026-03-15 14:08:20.249 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5066/api/login - application/json 19
+2026-03-15 14:08:20.249 +02:00 [INF] CORS policy execution successful.
+2026-03-15 14:08:20.249 +02:00 [INF] Executing endpoint 'Controllers.UsersController.Login (1)'
+2026-03-15 14:08:20.251 +02:00 [INF] Route matched with {action = "Login", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] Login(Models.User) on controller Controllers.UsersController (1).
+2026-03-15 14:08:20.290 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2026-03-15 14:08:20.291 +02:00 [INF] Executed action Controllers.UsersController.Login (1) in 39.1296ms
+2026-03-15 14:08:20.291 +02:00 [INF] Executed endpoint 'Controllers.UsersController.Login (1)'
+2026-03-15 14:08:20.291 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5066/api/login - 200 null application/json; charset=utf-8 42.1419ms
+2026-03-15 14:08:20.319 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5066/activityHub/negotiate?negotiateVersion=1 - null 0
+2026-03-15 14:08:20.319 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5066/api/item - application/json null
+2026-03-15 14:08:20.319 +02:00 [INF] CORS policy execution successful.
+2026-03-15 14:08:20.319 +02:00 [INF] Executing endpoint 'Controllers.SaledsController.GetAll (1)'
+2026-03-15 14:08:20.319 +02:00 [INF] Executing endpoint '/activityHub/negotiate'
+2026-03-15 14:08:20.320 +02:00 [INF] Route matched with {action = "GetAll", controller = "Saleds"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Models.Saleds]] GetAll(System.Nullable`1[System.Int32]) on controller Controllers.SaledsController (1).
+2026-03-15 14:08:20.320 +02:00 [INF] Executed endpoint '/activityHub/negotiate'
+2026-03-15 14:08:20.320 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5066/activityHub/negotiate?negotiateVersion=1 - 200 316 application/json 1.4245ms
+2026-03-15 14:08:20.320 +02:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Models.Saleds, 1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-15 14:08:20.321 +02:00 [INF] Executed action Controllers.SaledsController.GetAll (1) in 0.8651ms
+2026-03-15 14:08:20.321 +02:00 [INF] Executed endpoint 'Controllers.SaledsController.GetAll (1)'
+2026-03-15 14:08:20.321 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5066/api/item - 200 null application/json; charset=utf-8 1.9909ms
+2026-03-15 14:08:20.329 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5066/activityHub?id=0c-tnwtW-DJrGeLn8cXjaw&access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjUiLCJ1c2VybmFtZSI6IteW15TXkdeZIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IteW15TXkdeZIiwidHlwZSI6IlVzZXIiLCJDbGVhcmFuY2VMZXZlbCI6IjAiLCJleHAiOjE3NzYxNjQ5MDAsImlzcyI6Imh0dHBzOi8vc2FsZWRzLmNvbSIsImF1ZCI6Imh0dHBzOi8vc2FsZWRzLmNvbSJ9.9HvHH15MWvgC7jOKP_cHXdvQ2WhrziwCmsWrgQGUY8M - null null
+2026-03-15 14:08:20.329 +02:00 [INF] CORS policy execution successful.
+2026-03-15 14:08:20.329 +02:00 [INF] Executing endpoint '/activityHub'
+2026-03-15 14:08:22.171 +02:00 [INF] Executed endpoint '/activityHub'
+2026-03-15 14:08:22.171 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5066/activityHub?id=0c-tnwtW-DJrGeLn8cXjaw&access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjUiLCJ1c2VybmFtZSI6IteW15TXkdeZIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IteW15TXkdeZIiwidHlwZSI6IlVzZXIiLCJDbGVhcmFuY2VMZXZlbCI6IjAiLCJleHAiOjE3NzYxNjQ5MDAsImlzcyI6Imh0dHBzOi8vc2FsZWRzLmNvbSIsImF1ZCI6Imh0dHBzOi8vc2FsZWRzLmNvbSJ9.9HvHH15MWvgC7jOKP_cHXdvQ2WhrziwCmsWrgQGUY8M - 101 null null 1842.7764ms
+2026-03-15 14:08:27.188 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5066/api/login - application/json 19
+2026-03-15 14:08:27.188 +02:00 [INF] CORS policy execution successful.
+2026-03-15 14:08:27.189 +02:00 [INF] Executing endpoint 'Controllers.UsersController.Login (1)'
+2026-03-15 14:08:27.189 +02:00 [INF] Route matched with {action = "Login", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] Login(Models.User) on controller Controllers.UsersController (1).
+2026-03-15 14:08:27.190 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2026-03-15 14:08:27.191 +02:00 [INF] Executed action Controllers.UsersController.Login (1) in 1.556ms
+2026-03-15 14:08:27.191 +02:00 [INF] Executed endpoint 'Controllers.UsersController.Login (1)'
+2026-03-15 14:08:27.191 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5066/api/login - 200 null application/json; charset=utf-8 2.4216ms
+2026-03-15 14:08:27.218 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5066/activityHub/negotiate?negotiateVersion=1 - null 0
+2026-03-15 14:08:27.218 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5066/api/item - application/json null
+2026-03-15 14:08:27.218 +02:00 [INF] CORS policy execution successful.
+2026-03-15 14:08:27.219 +02:00 [INF] Executing endpoint 'Controllers.SaledsController.GetAll (1)'
+2026-03-15 14:08:27.219 +02:00 [INF] Executing endpoint '/activityHub/negotiate'
+2026-03-15 14:08:27.219 +02:00 [INF] Route matched with {action = "GetAll", controller = "Saleds"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Models.Saleds]] GetAll(System.Nullable`1[System.Int32]) on controller Controllers.SaledsController (1).
+2026-03-15 14:08:27.219 +02:00 [INF] Executed endpoint '/activityHub/negotiate'
+2026-03-15 14:08:27.219 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5066/activityHub/negotiate?negotiateVersion=1 - 200 316 application/json 1.5072ms
+2026-03-15 14:08:27.220 +02:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Models.Saleds, 1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-15 14:08:27.220 +02:00 [INF] Executed action Controllers.SaledsController.GetAll (1) in 0.7536ms
+2026-03-15 14:08:27.220 +02:00 [INF] Executed endpoint 'Controllers.SaledsController.GetAll (1)'
+2026-03-15 14:08:27.220 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5066/api/item - 200 null application/json; charset=utf-8 2.1207ms
+2026-03-15 14:08:27.224 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5066/activityHub?id=SnJvGCif7HRmBDPkzkllQg&access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJ1c2VybmFtZSI6IteQ15nXnNeUIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IteQ15nXnNeUIiwidHlwZSI6IkFkbWluIiwiQ2xlYXJhbmNlTGV2ZWwiOiIxIiwiZXhwIjoxNzc2MTY0OTA3LCJpc3MiOiJodHRwczovL3NhbGVkcy5jb20iLCJhdWQiOiJodHRwczovL3NhbGVkcy5jb20ifQ.cuvb309GR_giA7-igWENB2KRbIoCQNd4kp6GkTDGn4s - null null
+2026-03-15 14:08:27.224 +02:00 [INF] CORS policy execution successful.
+2026-03-15 14:08:27.225 +02:00 [INF] Executing endpoint '/activityHub'
+2026-03-15 14:08:27.229 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5066/img/salad_639091752952263437.JPG - null null
+2026-03-15 14:08:27.230 +02:00 [INF] The file /img/salad_639091752952263437.JPG was not modified
+2026-03-15 14:08:27.230 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5066/img/salad_639091752952263437.JPG - 304 null image/jpeg 1.2108ms
+2026-03-15 14:08:29.484 +02:00 [INF] Executed endpoint '/activityHub'
+2026-03-15 14:08:29.485 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5066/activityHub?id=SnJvGCif7HRmBDPkzkllQg&access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJ1c2VybmFtZSI6IteQ15nXnNeUIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IteQ15nXnNeUIiwidHlwZSI6IkFkbWluIiwiQ2xlYXJhbmNlTGV2ZWwiOiIxIiwiZXhwIjoxNzc2MTY0OTA3LCJpc3MiOiJodHRwczovL3NhbGVkcy5jb20iLCJhdWQiOiJodHRwczovL3NhbGVkcy5jb20ifQ.cuvb309GR_giA7-igWENB2KRbIoCQNd4kp6GkTDGn4s - 101 null null 2260.29ms
+2026-03-15 14:09:56.815 +02:00 [INF] User profile is available. Using 'C:\Users\1\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-03-15 14:09:56.891 +02:00 [INF] Now listening on: http://localhost:5066
+2026-03-15 14:09:56.893 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-15 14:09:56.894 +02:00 [INF] Hosting environment: Development
+2026-03-15 14:09:56.894 +02:00 [INF] Content root path: C:\Users\1\Desktop\dotnet-webapi\dotnet-webapi\Saled
+2026-03-15 14:13:18.415 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5066/swagger/index.html - null null
+2026-03-15 14:13:18.484 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5066/swagger/index.html - 200 null text/html;charset=utf-8 70.8444ms
+2026-03-15 14:13:47.513 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5066/ - null null
+2026-03-15 14:13:47.527 +02:00 [INF] The file /index.html was not modified
+2026-03-15 14:13:47.528 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5066/index.html - 304 null text/html 15.2261ms
+2026-03-15 14:13:47.546 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5066/css/img/13.jpg - null null
+2026-03-15 14:13:47.553 +02:00 [WRN] Failed to determine the https port for redirect.
+2026-03-15 14:13:47.577 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5066/css/img/13.jpg - 404 0 null 30.6862ms
+2026-03-15 14:13:47.579 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5066/css/img/13.jpg, Response status code: 404
+2026-03-15 14:13:48.717 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5066/favicon.ico - null null
+2026-03-15 14:13:48.719 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5066/favicon.ico - 404 0 null 2.6592ms
+2026-03-15 14:13:48.720 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5066/favicon.ico, Response status code: 404
+2026-03-15 14:13:54.074 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5066/api/login - application/json 19
+2026-03-15 14:13:54.076 +02:00 [INF] CORS policy execution successful.
+2026-03-15 14:13:54.080 +02:00 [INF] Executing endpoint 'Controllers.UsersController.Login (1)'
+2026-03-15 14:13:54.098 +02:00 [INF] Route matched with {action = "Login", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] Login(Models.User) on controller Controllers.UsersController (1).
+2026-03-15 14:13:54.185 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2026-03-15 14:13:54.193 +02:00 [INF] Executed action Controllers.UsersController.Login (1) in 91.5991ms
+2026-03-15 14:13:54.193 +02:00 [INF] Executed endpoint 'Controllers.UsersController.Login (1)'
+2026-03-15 14:13:54.193 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5066/api/login - 200 null application/json; charset=utf-8 119.3785ms
+2026-03-15 14:13:54.202 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5066/salad.html - null null
+2026-03-15 14:13:54.203 +02:00 [INF] The file /salad.html was not modified
+2026-03-15 14:13:54.203 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5066/salad.html - 304 null text/html 1.0438ms
+2026-03-15 14:13:54.218 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5066/js/site.js?v=2 - null null
+2026-03-15 14:13:54.219 +02:00 [INF] The file /js/site.js was not modified
+2026-03-15 14:13:54.219 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5066/js/site.js?v=2 - 304 null text/javascript 0.8914ms
+2026-03-15 14:13:54.227 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5066/api/item - application/json null
+2026-03-15 14:13:54.228 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5066/activityHub/negotiate?negotiateVersion=1 - null 0
+2026-03-15 14:13:54.230 +02:00 [INF] CORS policy execution successful.
+2026-03-15 14:13:54.251 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5066/path/to/favicon.ico - null null
+2026-03-15 14:13:54.252 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5066/path/to/favicon.ico - 404 0 null 0.8549ms
+2026-03-15 14:13:54.252 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5066/path/to/favicon.ico, Response status code: 404
+2026-03-15 14:13:54.295 +02:00 [INF] Executing endpoint 'Controllers.SaledsController.GetAll (1)'
+2026-03-15 14:13:54.295 +02:00 [INF] Executing endpoint '/activityHub/negotiate'
+2026-03-15 14:13:54.300 +02:00 [INF] Route matched with {action = "GetAll", controller = "Saleds"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Models.Saleds]] GetAll(System.Nullable`1[System.Int32]) on controller Controllers.SaledsController (1).
+2026-03-15 14:13:54.303 +02:00 [INF] Executed endpoint '/activityHub/negotiate'
+2026-03-15 14:13:54.304 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5066/activityHub/negotiate?negotiateVersion=1 - 200 316 application/json 75.2896ms
+2026-03-15 14:13:54.306 +02:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Models.Saleds, 1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-15 14:13:54.307 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5066/activityHub?id=9QqW0WlG7J2pTTJU7zFEqw&access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJ1c2VybmFtZSI6IteQ15nXnNeUIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IteQ15nXnNeUIiwidHlwZSI6IkFkbWluIiwiQ2xlYXJhbmNlTGV2ZWwiOiIxIiwiZXhwIjoxNzc2MTY1MjM0LCJpc3MiOiJodHRwczovL3NhbGVkcy5jb20iLCJhdWQiOiJodHRwczovL3NhbGVkcy5jb20ifQ.aS5WGxXuX3ehVIJ09ANds8cW4NRLMamU_5wnSRyrzAc - null null
+2026-03-15 14:13:54.307 +02:00 [INF] CORS policy execution successful.
+2026-03-15 14:13:54.310 +02:00 [INF] Executing endpoint '/activityHub'
+2026-03-15 14:13:54.314 +02:00 [INF] Executed action Controllers.SaledsController.GetAll (1) in 13.4811ms
+2026-03-15 14:13:54.314 +02:00 [INF] Executed endpoint 'Controllers.SaledsController.GetAll (1)'
+2026-03-15 14:13:54.314 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5066/api/item - 200 null application/json; charset=utf-8 87.5542ms
+2026-03-15 14:13:54.319 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5066/img/salad_639091802127254972.JPG - null null
+2026-03-15 14:13:54.319 +02:00 [INF] The file /img/salad_639091802127254972.JPG was not modified
+2026-03-15 14:13:54.320 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5066/img/salad_639091802127254972.JPG - 304 null image/jpeg 0.805ms
+2026-03-15 14:13:57.760 +02:00 [INF] Executed endpoint '/activityHub'
+2026-03-15 14:13:57.761 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5066/activityHub?id=9QqW0WlG7J2pTTJU7zFEqw&access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJ1c2VybmFtZSI6IteQ15nXnNeUIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IteQ15nXnNeUIiwidHlwZSI6IkFkbWluIiwiQ2xlYXJhbmNlTGV2ZWwiOiIxIiwiZXhwIjoxNzc2MTY1MjM0LCJpc3MiOiJodHRwczovL3NhbGVkcy5jb20iLCJhdWQiOiJodHRwczovL3NhbGVkcy5jb20ifQ.aS5WGxXuX3ehVIJ09ANds8cW4NRLMamU_5wnSRyrzAc - 101 null null 3454.1218ms
+2026-03-15 14:14:06.965 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5066/api/login - application/json 19
+2026-03-15 14:14:06.965 +02:00 [INF] CORS policy execution successful.
+2026-03-15 14:14:06.966 +02:00 [INF] Executing endpoint 'Controllers.UsersController.Login (1)'
+2026-03-15 14:14:06.966 +02:00 [INF] Route matched with {action = "Login", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] Login(Models.User) on controller Controllers.UsersController (1).
+2026-03-15 14:14:06.969 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2026-03-15 14:14:06.970 +02:00 [INF] Executed action Controllers.UsersController.Login (1) in 3.7666ms
+2026-03-15 14:14:06.970 +02:00 [INF] Executed endpoint 'Controllers.UsersController.Login (1)'
+2026-03-15 14:14:06.970 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5066/api/login - 200 null application/json; charset=utf-8 4.9973ms
+2026-03-15 14:14:06.995 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5066/activityHub/negotiate?negotiateVersion=1 - null 0
+2026-03-15 14:14:06.995 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5066/api/item - application/json null
+2026-03-15 14:14:06.996 +02:00 [INF] CORS policy execution successful.
+2026-03-15 14:14:06.996 +02:00 [INF] Executing endpoint 'Controllers.SaledsController.GetAll (1)'
+2026-03-15 14:14:06.996 +02:00 [INF] Executing endpoint '/activityHub/negotiate'
+2026-03-15 14:14:06.996 +02:00 [INF] Route matched with {action = "GetAll", controller = "Saleds"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Models.Saleds]] GetAll(System.Nullable`1[System.Int32]) on controller Controllers.SaledsController (1).
+2026-03-15 14:14:06.996 +02:00 [INF] Executed endpoint '/activityHub/negotiate'
+2026-03-15 14:14:06.997 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5066/activityHub/negotiate?negotiateVersion=1 - 200 316 application/json 1.3172ms
+2026-03-15 14:14:06.997 +02:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Models.Saleds, 1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-15 14:14:06.998 +02:00 [INF] Executed action Controllers.SaledsController.GetAll (1) in 1.317ms
+2026-03-15 14:14:06.998 +02:00 [INF] Executed endpoint 'Controllers.SaledsController.GetAll (1)'
+2026-03-15 14:14:06.998 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5066/api/item - 200 null application/json; charset=utf-8 2.4737ms
+2026-03-15 14:14:07.000 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5066/activityHub?id=jeRUrjG6UGyBv_pTKZD76g&access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjUiLCJ1c2VybmFtZSI6IteW15TXkdeZIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IteW15TXkdeZIiwidHlwZSI6IlVzZXIiLCJDbGVhcmFuY2VMZXZlbCI6IjAiLCJleHAiOjE3NzYxNjUyNDYsImlzcyI6Imh0dHBzOi8vc2FsZWRzLmNvbSIsImF1ZCI6Imh0dHBzOi8vc2FsZWRzLmNvbSJ9.nLxEHYshSbezRniWhSCA67ZRWzeuItidGOiBprrNiB4 - null null
+2026-03-15 14:14:07.001 +02:00 [INF] CORS policy execution successful.
+2026-03-15 14:14:07.001 +02:00 [INF] Executing endpoint '/activityHub'
+2026-03-15 14:14:27.337 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5066/api/item - multipart/form-data; boundary=----WebKitFormBoundarysVEJdzqhd3iGBHab 1290230
+2026-03-15 14:14:27.337 +02:00 [INF] CORS policy execution successful.
+2026-03-15 14:14:27.338 +02:00 [INF] Executing endpoint 'Controllers.SaledsController.Create (1)'
+2026-03-15 14:14:27.347 +02:00 [INF] Route matched with {action = "Create", controller = "Saleds"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create() on controller Controllers.SaledsController (1).
+2026-03-15 14:14:27.412 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5066/api/item - application/json null
+2026-03-15 14:14:27.412 +02:00 [INF] Executing CreatedAtActionResult, writing value of type 'Models.Saleds'.
+2026-03-15 14:14:27.412 +02:00 [INF] Executing endpoint 'Controllers.SaledsController.GetAll (1)'
+2026-03-15 14:14:27.412 +02:00 [INF] Route matched with {action = "GetAll", controller = "Saleds"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Models.Saleds]] GetAll(System.Nullable`1[System.Int32]) on controller Controllers.SaledsController (1).
+2026-03-15 14:14:27.420 +02:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Models.Saleds, 1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-15 14:14:27.420 +02:00 [INF] Executed action Controllers.SaledsController.GetAll (1) in 7.5742ms
+2026-03-15 14:14:27.420 +02:00 [INF] Executed endpoint 'Controllers.SaledsController.GetAll (1)'
+2026-03-15 14:14:27.420 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5066/api/item - 200 null application/json; charset=utf-8 8.7145ms
+2026-03-15 14:14:27.431 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5066/img/salad_639091808673816993.JPG - null null
+2026-03-15 14:14:27.439 +02:00 [INF] Executed action Controllers.SaledsController.Create (1) in 91.9015ms
+2026-03-15 14:14:27.439 +02:00 [INF] Executed endpoint 'Controllers.SaledsController.Create (1)'
+2026-03-15 14:14:27.441 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5066/api/item - 201 null application/json; charset=utf-8 104.1458ms
+2026-03-15 14:14:27.442 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5066/api/item - application/json null
+2026-03-15 14:14:27.443 +02:00 [INF] Executing endpoint 'Controllers.SaledsController.GetAll (1)'
+2026-03-15 14:14:27.443 +02:00 [INF] Route matched with {action = "GetAll", controller = "Saleds"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Models.Saleds]] GetAll(System.Nullable`1[System.Int32]) on controller Controllers.SaledsController (1).
+2026-03-15 14:14:27.444 +02:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Models.Saleds, 1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-15 14:14:27.445 +02:00 [INF] Executed action Controllers.SaledsController.GetAll (1) in 1.951ms
+2026-03-15 14:14:27.445 +02:00 [INF] Executed endpoint 'Controllers.SaledsController.GetAll (1)'
+2026-03-15 14:14:27.445 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5066/api/item - 200 null application/json; charset=utf-8 3.5583ms
+2026-03-15 14:14:27.447 +02:00 [INF] Sending file. Request path: '/img/salad_639091808673816993.JPG'. Physical path: 'C:\Users\1\Desktop\dotnet-webapi\dotnet-webapi\Saled\wwwroot\img\salad_639091808673816993.JPG'
+2026-03-15 14:14:27.447 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5066/img/salad_639091808673816993.JPG - 200 1289700 image/jpeg 16.2452ms
+2026-03-15 14:14:33.014 +02:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5066/api/item/17 - application/json null
+2026-03-15 14:14:33.014 +02:00 [INF] CORS policy execution successful.
+2026-03-15 14:14:33.015 +02:00 [INF] Executing endpoint 'Controllers.SaledsController.Delete (1)'
+2026-03-15 14:14:33.019 +02:00 [INF] Route matched with {action = "Delete", controller = "Saleds"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Delete(Int32) on controller Controllers.SaledsController (1).
+2026-03-15 14:14:33.023 +02:00 [INF] Executing ContentResult with HTTP Response ContentType of text/plain; charset=utf-8
+2026-03-15 14:14:33.023 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5066/api/item - application/json null
+2026-03-15 14:14:33.024 +02:00 [INF] Executed action Controllers.SaledsController.Delete (1) in 5.4294ms
+2026-03-15 14:14:33.024 +02:00 [INF] Executing endpoint 'Controllers.SaledsController.GetAll (1)'
+2026-03-15 14:14:33.024 +02:00 [INF] Executed endpoint 'Controllers.SaledsController.Delete (1)'
+2026-03-15 14:14:33.024 +02:00 [INF] Route matched with {action = "GetAll", controller = "Saleds"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Models.Saleds]] GetAll(System.Nullable`1[System.Int32]) on controller Controllers.SaledsController (1).
+2026-03-15 14:14:33.024 +02:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5066/api/item/17 - 200 1 text/plain; charset=utf-8 10.4207ms
+2026-03-15 14:14:33.025 +02:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Models.Saleds, 1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-15 14:14:33.025 +02:00 [INF] Executed action Controllers.SaledsController.GetAll (1) in 0.6521ms
+2026-03-15 14:14:33.025 +02:00 [INF] Executed endpoint 'Controllers.SaledsController.GetAll (1)'
+2026-03-15 14:14:33.025 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5066/api/item - 200 null application/json; charset=utf-8 1.6491ms
+2026-03-15 14:14:33.027 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5066/api/item - application/json null
+2026-03-15 14:14:33.028 +02:00 [INF] Executing endpoint 'Controllers.SaledsController.GetAll (1)'
+2026-03-15 14:14:33.028 +02:00 [INF] Route matched with {action = "GetAll", controller = "Saleds"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Models.Saleds]] GetAll(System.Nullable`1[System.Int32]) on controller Controllers.SaledsController (1).
+2026-03-15 14:14:33.028 +02:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Models.Saleds, 1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-15 14:14:33.028 +02:00 [INF] Executed action Controllers.SaledsController.GetAll (1) in 0.5145ms
+2026-03-15 14:14:33.028 +02:00 [INF] Executed endpoint 'Controllers.SaledsController.GetAll (1)'
+2026-03-15 14:14:33.028 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5066/api/item - 200 null application/json; charset=utf-8 1.1803ms
+2026-03-15 14:14:35.553 +02:00 [INF] Executed endpoint '/activityHub'
+2026-03-15 14:14:35.553 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5066/activityHub?id=jeRUrjG6UGyBv_pTKZD76g&access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjUiLCJ1c2VybmFtZSI6IteW15TXkdeZIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IteW15TXkdeZIiwidHlwZSI6IlVzZXIiLCJDbGVhcmFuY2VMZXZlbCI6IjAiLCJleHAiOjE3NzYxNjUyNDYsImlzcyI6Imh0dHBzOi8vc2FsZWRzLmNvbSIsImF1ZCI6Imh0dHBzOi8vc2FsZWRzLmNvbSJ9.nLxEHYshSbezRniWhSCA67ZRWzeuItidGOiBprrNiB4 - 101 null null 28552.887ms
+2026-03-15 14:14:42.283 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5066/api/login - application/json 19
+2026-03-15 14:14:42.283 +02:00 [INF] CORS policy execution successful.
+2026-03-15 14:14:42.284 +02:00 [INF] Executing endpoint 'Controllers.UsersController.Login (1)'
+2026-03-15 14:14:42.284 +02:00 [INF] Route matched with {action = "Login", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.String] Login(Models.User) on controller Controllers.UsersController (1).
+2026-03-15 14:14:42.285 +02:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2026-03-15 14:14:42.285 +02:00 [INF] Executed action Controllers.UsersController.Login (1) in 1.0484ms
+2026-03-15 14:14:42.285 +02:00 [INF] Executed endpoint 'Controllers.UsersController.Login (1)'
+2026-03-15 14:14:42.285 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5066/api/login - 200 null application/json; charset=utf-8 1.8368ms
+2026-03-15 14:14:42.311 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5066/activityHub/negotiate?negotiateVersion=1 - null 0
+2026-03-15 14:14:42.311 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5066/api/item - application/json null
+2026-03-15 14:14:42.311 +02:00 [INF] CORS policy execution successful.
+2026-03-15 14:14:42.312 +02:00 [INF] Executing endpoint 'Controllers.SaledsController.GetAll (1)'
+2026-03-15 14:14:42.312 +02:00 [INF] Executing endpoint '/activityHub/negotiate'
+2026-03-15 14:14:42.312 +02:00 [INF] Route matched with {action = "GetAll", controller = "Saleds"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Models.Saleds]] GetAll(System.Nullable`1[System.Int32]) on controller Controllers.SaledsController (1).
+2026-03-15 14:14:42.312 +02:00 [INF] Executed endpoint '/activityHub/negotiate'
+2026-03-15 14:14:42.312 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5066/activityHub/negotiate?negotiateVersion=1 - 200 316 application/json 0.7675ms
+2026-03-15 14:14:42.312 +02:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Models.Saleds, 1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-15 14:14:42.312 +02:00 [INF] Executed action Controllers.SaledsController.GetAll (1) in 0.6315ms
+2026-03-15 14:14:42.312 +02:00 [INF] Executed endpoint 'Controllers.SaledsController.GetAll (1)'
+2026-03-15 14:14:42.313 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5066/api/item - 200 null application/json; charset=utf-8 1.2849ms
+2026-03-15 14:14:42.318 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5066/activityHub?id=qMyws3HfyKakA0D6pm74zg&access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJ1c2VybmFtZSI6IteQ15nXnNeUIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IteQ15nXnNeUIiwidHlwZSI6IkFkbWluIiwiQ2xlYXJhbmNlTGV2ZWwiOiIxIiwiZXhwIjoxNzc2MTY1MjgyLCJpc3MiOiJodHRwczovL3NhbGVkcy5jb20iLCJhdWQiOiJodHRwczovL3NhbGVkcy5jb20ifQ.amz6HchiFEH4ECNu-mVk0ejTO6HC_QARZcLcqjg4H-8 - null null
+2026-03-15 14:14:42.318 +02:00 [INF] CORS policy execution successful.
+2026-03-15 14:14:42.319 +02:00 [INF] Executing endpoint '/activityHub'
+2026-03-15 14:14:48.706 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5066/users.html - null null
+2026-03-15 14:14:48.707 +02:00 [INF] The file /users.html was not modified
+2026-03-15 14:14:48.707 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5066/users.html - 304 null text/html 0.6358ms
+2026-03-15 14:14:48.722 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5066/js/users.js - null null
+2026-03-15 14:14:48.724 +02:00 [INF] Sending file. Request path: '/js/users.js'. Physical path: 'C:\Users\1\Desktop\dotnet-webapi\dotnet-webapi\Saled\wwwroot\js\users.js'
+2026-03-15 14:14:48.724 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5066/js/users.js - 200 5171 text/javascript 2.5753ms
+2026-03-15 14:14:48.731 +02:00 [INF] Executed endpoint '/activityHub'
+2026-03-15 14:14:48.731 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5066/api/user - application/json null
+2026-03-15 14:14:48.731 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5066/activityHub?id=qMyws3HfyKakA0D6pm74zg&access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJ1c2VybmFtZSI6IteQ15nXnNeUIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IteQ15nXnNeUIiwidHlwZSI6IkFkbWluIiwiQ2xlYXJhbmNlTGV2ZWwiOiIxIiwiZXhwIjoxNzc2MTY1MjgyLCJpc3MiOiJodHRwczovL3NhbGVkcy5jb20iLCJhdWQiOiJodHRwczovL3NhbGVkcy5jb20ifQ.amz6HchiFEH4ECNu-mVk0ejTO6HC_QARZcLcqjg4H-8 - 101 null null 6413.8482ms
+2026-03-15 14:14:48.733 +02:00 [INF] Executing endpoint 'Controllers.UsersController.GetAll (1)'
+2026-03-15 14:14:48.735 +02:00 [INF] Route matched with {action = "GetAll", controller = "Users"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.List`1[Models.User]] GetAll() on controller Controllers.UsersController (1).
+2026-03-15 14:14:48.737 +02:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Models.User, 1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-15 14:14:48.739 +02:00 [INF] Executed action Controllers.UsersController.GetAll (1) in 4.0983ms
+2026-03-15 14:14:48.740 +02:00 [INF] Executed endpoint 'Controllers.UsersController.GetAll (1)'
+2026-03-15 14:14:48.740 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5066/api/user - 200 null application/json; charset=utf-8 8.362ms
+2026-03-15 14:14:59.446 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5066/activityHub/negotiate?negotiateVersion=1 - null 0
+2026-03-15 14:14:59.446 +02:00 [INF] CORS policy execution successful.
+2026-03-15 14:14:59.446 +02:00 [INF] Executing endpoint '/activityHub/negotiate'
+2026-03-15 14:14:59.447 +02:00 [INF] Executed endpoint '/activityHub/negotiate'
+2026-03-15 14:14:59.447 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5066/activityHub/negotiate?negotiateVersion=1 - 200 316 application/json 1.2127ms
+2026-03-15 14:14:59.448 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5066/img/salad_639091802127254972.JPG - null null
+2026-03-15 14:14:59.449 +02:00 [INF] The file /img/salad_639091802127254972.JPG was not modified
+2026-03-15 14:14:59.449 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5066/img/salad_639091802127254972.JPG - 304 null image/jpeg 0.5097ms
+2026-03-15 14:14:59.449 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5066/activityHub?id=9pzgjTFaMLftJOS8fTok4w&access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6IjEiLCJ1c2VybmFtZSI6IteQ15nXnNeUIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IteQ15nXnNeUIiwidHlwZSI6IkFkbWluIiwiQ2xlYXJhbmNlTGV2ZWwiOiIxIiwiZXhwIjoxNzc2MTY1MjgyLCJpc3MiOiJodHRwczovL3NhbGVkcy5jb20iLCJhdWQiOiJodHRwczovL3NhbGVkcy5jb20ifQ.amz6HchiFEH4ECNu-mVk0ejTO6HC_QARZcLcqjg4H-8 - null null
+2026-03-15 14:14:59.449 +02:00 [INF] CORS policy execution successful.
+2026-03-15 14:14:59.450 +02:00 [INF] Executing endpoint '/activityHub'

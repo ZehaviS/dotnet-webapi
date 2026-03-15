@@ -12,6 +12,7 @@ namespace Services
     public class SaledServiceJson : ISaledsService
     {
         private readonly int activeUserId;
+        private readonly string activeUserName;
         private readonly bool isAdmin;
         private List<Saleds> Saleds { get; }
         private readonly IHubContext<Hubs.ActivityHub> hubContext;
@@ -24,7 +25,10 @@ namespace Services
         {
             this.hubContext = hubContext;
             activeUserId = activeUser.ActiveUser?.Id ?? 0;
-            isAdmin = activeUserId == 1; // אילה הוא מנהל ומקבל גישה לכל הסלטים
+            activeUserName = string.IsNullOrWhiteSpace(activeUser.ActiveUser?.Name)
+                ? $"משתמש {activeUserId}"
+                : activeUser.ActiveUser.Name;
+            isAdmin = activeUser.ActiveUser?.ClearanceLevel == 1 || activeUserId == 1; // Clearance 1 או id=1 מנהל
 
             this.filePath = Path.Combine(webHost.ContentRootPath, "Data", "Saled.json");
 
@@ -133,12 +137,12 @@ namespace Services
 
         private string GetUserName()
         {
-            if (activeUserId == 1) return "אילה";
-            if (activeUserId == 2) return "זהבי";
-            if (activeUserId == 3) return "מירי";
-            if (activeUserId == 4) return "שירה";
-            if (activeUserId == 5) return "מיכל";
-            return $"משתמש {activeUserId}";
+            return activeUserName;
+        }
+
+        public List<Saleds> GetByUser(int userId)
+        {
+            return isAdmin ? Saleds.Where(p => p.UserId == userId).ToList() : Saleds.Where(p => p.UserId == activeUserId).ToList();
         }
 
         public int Count => GetAll().Count;

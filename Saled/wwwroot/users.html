@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Management</title>
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>User Management</h1>
+            <p>Here you can add, edit, delete and view the salad list of any user.</p>
+            <a href="salad.html" class="btn-add">Back to Salad Management</a>
+        </header>
+
+        <section class="form-row" style="margin-bottom:16px;">
+            <h3>Add New User</h3>
+            <input id="new-user-name" placeholder="User Name" />
+            <input id="new-user-clearance" type="number" min="0" max="5" placeholder="Clearance Level" />
+            <button onclick="createUser()" class="btn-add" style="margin-left:8px;">Add User</button>
+        </section>
+
+        <section id="edit-user-section" style="display:none; margin-bottom:16px;">
+            <h3>Edit User</h3>
+            <input id="edit-user-id" type="hidden" />
+            <input id="edit-user-name" placeholder="User Name" />
+            <input id="edit-user-clearance" type="number" min="0" max="5" placeholder="Clearance Level" />
+            <button onclick="saveUserEdit()" class="btn-add" style="margin-left:8px;">Save Changes</button>
+            <button onclick="cancelEdit()" class="btn-delete">Cancel</button>
+        </section>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>ClearanceLevel</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="users-body"></tbody>
+        </table>
+
+        <p id="status"></p>
+    </div>
+
+    <script src="js/users.js"></script>
+</body>
+</html>

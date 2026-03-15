@@ -1,5 +1,47 @@
-const uri = '/saleds';
+const uri = '/api/item';
 let saleds = [];
+
+function parseJwt(token) {
+    if (!token) return null;
+    const parts = token.split('.');
+    if (parts.length < 2) return null;
+    try {
+        const payload = JSON.parse(atob(parts[1].replace(/-/g, '+').replace(/_/g, '/')));
+        return payload;
+    } catch (err) {
+        console.error('Invalid JWT payload', err);
+        return null;
+    }
+}
+
+function getCurrentUserType() {
+    const token = localStorage.getItem('token');
+    const payload = parseJwt(token);
+    return payload?.type;
+}
+
+function getCurrentClearance() {
+    const token = localStorage.getItem('token');
+    const payload = parseJwt(token);
+    const level = payload?.ClearanceLevel || payload?.clearanceLevel;
+    return level ? parseInt(level, 10) || 0 : 0;
+}
+
+function isAdmin() {
+    return getCurrentUserType() === 'Admin' || getCurrentClearance() === 1;
+}
+
+function renderAdminLink() {
+    const adminLinkContainer = document.getElementById('admin-link-container');
+    if (!adminLinkContainer) return;
+    if (isAdmin()) {
+        const a = document.createElement('a');
+        a.href = 'users.html';
+        a.innerText = 'User List';
+        a.className = 'btn-add';
+        adminLinkContainer.appendChild(a);
+    }
+}
 
 function getAuthHeaders() {
     const token = localStorage.getItem('token');
@@ -302,3 +344,4 @@ function setupSignalR() {
 // load items when the script is first evaluated
 getItems();
 setupSignalR();
+renderAdminLink();

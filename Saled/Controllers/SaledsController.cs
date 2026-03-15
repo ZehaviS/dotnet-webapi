@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/item")]
     [Authorize]
     public class SaledsController : ControllerBase
     {
@@ -17,8 +17,12 @@ namespace Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<Saleds>> GetAll() =>
-            _service.GetAll();
+        public ActionResult<List<Saleds>> GetAll([FromQuery] int? userId)
+        {
+            if (userId.HasValue)
+                return _service.GetByUser(userId.Value);
+            return _service.GetAll();
+        }
 
         [HttpGet("{id}")]
         public ActionResult<Saleds> Get(int id)

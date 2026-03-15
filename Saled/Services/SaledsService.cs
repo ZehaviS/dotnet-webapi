@@ -13,15 +13,17 @@ namespace Services
         {
             _saleds = new List<Saleds>
             {
-                new Saleds { Id = 1, Name = "גזר מרוקאי", weight = 2.5 },
-                new Saleds { Id = 2, Name = "גזר בשום שמיר", weight = 3.0 },
-                new Saleds { Id = 3, Name = "זיתים מרוקאים", weight = 4.2 },
-                new Saleds { Id = 4, Name = "סלט חצילים", weight = 1.5 },
-                new Saleds { Id = 5, Name = "סלט מלפפונים", weight = 2.0 }
+                new Saleds { Id = 1, Name = "גזר מרוקאי", weight = 2.5, UserId = 1, ImageUrl = "img/5.jpg" },
+                new Saleds { Id = 2, Name = "גזר בשום שמיר", weight = 3.0, UserId = 1, ImageUrl = "img/5.jpg" },
+                new Saleds { Id = 3, Name = "זיתים מרוקאים", weight = 4.2, UserId = 2, ImageUrl = "img/5.jpg" },
+                new Saleds { Id = 4, Name = "סלט חצילים", weight = 1.5, UserId = 2, ImageUrl = "img/5.jpg" },
+                new Saleds { Id = 5, Name = "סלט מלפפונים", weight = 2.0, UserId = 1, ImageUrl = "img/5.jpg" }
             };
         }
 
         public List<Saleds> GetAll() => _saleds;
+
+        public List<Saleds> GetByUser(int userId) => _saleds.Where(s => s.UserId == userId).ToList();
 
         public Saleds Get(int id) =>
             _saleds.FirstOrDefault(s => s.Id == id);

@@ -41,7 +41,8 @@ namespace Services
 
         public void Add(User user)
         {
-            user.Id = Users.Count() + 1;
+            var nextId = Users.Any() ? Users.Max(p => p.Id) + 1 : 1;
+            user.Id = nextId;
             Users.Add(user);
             saveToFile();
         }

@@ -1,5 +1,6 @@
 using Models;
 using Microsoft.AspNetCore.Http;
+using System.Security.Claims;
 
 namespace Services
 {
@@ -9,13 +10,27 @@ namespace Services
 
         public ActiveUserService(IHttpContextAccessor context)
         {
-            var userId = context?.HttpContext?.User?.FindFirst("Id");
-            if (userId != null)
+            var userIdClaim = context?.HttpContext?.User?.FindFirst("Id")
+                ?? context?.HttpContext?.User?.FindFirst("id")
+                ?? context?.HttpContext?.User?.FindFirst(ClaimTypes.NameIdentifier);
+
+            if (userIdClaim != null && int.TryParse(userIdClaim.Value, out int userId))
             {
+                var userName = context.HttpContext.User.FindFirst("username")?.Value
+                    ?? context.HttpContext.User.FindFirst("name")?.Value
+                    ?? context.HttpContext.User.FindFirst(ClaimTypes.Name)?.Value
+                    ?? $"משתמש {userId}";
+
+                var clearanceString = context.HttpContext.User.FindFirst("ClearanceLevel")?.Value;
+                int clearanceLevel = 0;
+                if (!string.IsNullOrEmpty(clearanceString))
+                    int.TryParse(clearanceString, out clearanceLevel);
+
                 ActiveUser = new User
                 {
-                    Id = int.Parse(userId.Value),
-                    Name = context.HttpContext.User.FindFirst("username")?.Value ?? "",
+                    Id = userId,
+                    Name = userName,
+                    ClearanceLevel = clearanceLevel
                 };
             }
         }

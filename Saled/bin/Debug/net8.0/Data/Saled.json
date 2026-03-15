@@ -1,11 +1,1 @@
-[
-  {"Id":1,"Name":"\u05DE\u05D8\u05D1\u05D5\u05D7\u05D4","weight":5.55,"UserId":1,"ImageUrl":""},
-  {"Id":2,"Name":"\u05DE\u05D8\u05D1\u05D5\u05D7\u05D4","weight":5,"UserId":1,"ImageUrl":""},
-  {"Id":3,"Name":"\u05DE\u05DC\u05E4\u05E4\u05D5\u05DF \u05D7\u05DE\u05D5\u05E5 \u05D5\u05EA\u05D9\u05E8\u05E1 \u05D1\u05DE\u05D9\u05D5\u05E0\u05D6","weight":0.25,"UserId":2,"ImageUrl":"img/salad_5_639089103619458336.JPG"},
-  {"Id":4,"Name":"\u05D2\u05D6\u05E8 \u05DE\u05E8\u05D5\u05E7\u05D0\u05D9","weight":0.5,"UserId":3,"ImageUrl":"img/salad_639089098348663363.jpg"},
-  {"Id":5,"Name":"\u05DE\u05D8\u05D1\u05D5\u05D7\u05D4","weight":0.9,"UserId":3,"ImageUrl":"img/salad_639089098689183248.jpg"},
-  {"Id":6,"Name":"\u05DE\u05D8\u05D1\u05D5\u05D7\u05D4","weight":1,"UserId":5,"ImageUrl":"img/salad_8_639089102105583323.JPG"},
-  {"Id":7,"Name":"\u05D7\u05E6\u05D9\u05DC \u05D1\u05D8\u05D7\u05D9\u05E0\u05D4","weight":0.5,"UserId":5,"ImageUrl":"img/salad_639089102814204523.JPG"},
-  {"Id":8,"Name":"\u05D2\u05D6\u05E8 \u05D1\u05DB\u05E8\u05D5\u05D1","weight":0.7,"UserId":4,"ImageUrl":"img/salad_639089106583600953.JPG"},
-  {"Id":9,"Name":"\u05D7\u05E6\u05D9\u05DC \u05DE\u05D8\u05D5\u05D2\u05DF","weight":0.3,"UserId":4,"ImageUrl":""}
-]
+[{"Id":8,"Name":"\u05D2\u05D6\u05E8 \u05D1\u05DB\u05E8\u05D5\u05D1","weight":0.7,"UserId":4,"ImageUrl":"img/salad_639089106583600953.JPG"},{"Id":9,"Name":"\u05D7\u05E6\u05D9\u05DC \u05DE\u05D8\u05D5\u05D2\u05DF","weight":0.2,"UserId":4,"ImageUrl":"img/salad_9_639089120386415548.jpg"},{"Id":15,"Name":"\u05DE\u05D8\u05D1\u05D5\u05D7\u05D4","weight":0,"UserId":6,"ImageUrl":"img/salad_639091752952263437.JPG"},{"Id":16,"Name":"\u05DE\u05D8\u05D1\u05D5\u05D7\u05D4","weight":0.2,"UserId":5,"ImageUrl":"img/salad_639091802127254972.JPG"}]
