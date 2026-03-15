@@ -64,7 +64,7 @@ namespace Services
             saled.UserId = activeUserId;
             Saleds.Add(saled);
             saveToFile();
-            BroadcastActivity($"{GetUserName()} 🥗 הוסיף/ה סלט חדש: '{saled.Name}'! איזה טעים! 😋");
+            BroadcastActivity($"{GetUserName()} 🥗 הוסיף/ה סלט חדש: '{saled.Name}'! איזה טעים! 😋", new [] { activeUserId }, true);
         }
 
         public void Delete(int id)
@@ -74,9 +74,10 @@ namespace Services
 
             if (!isAdmin && saled.UserId != activeUserId) return;
 
+            var ownerId = saled.UserId;
             Saleds.Remove(saled);
             saveToFile();
-            BroadcastActivity($"{GetUserName()} 🗑️ מחק/ה סלט: '{saled.Name}'. ביי ביי לסלט! 😢");
+            BroadcastActivity($"{GetUserName()} 🗑️ מחק/ה סלט: '{saled.Name}'. ביי ביי לסלט! 😢", new [] { ownerId }, true);
         }
 
         public void Update(Saleds saled)
@@ -113,25 +114,39 @@ namespace Services
 
             Saleds[index] = saled;
             saveToFile();
-            BroadcastActivity($"{GetUserName()} ✏️ עדכן/ה סלט: '{saled.Name}'. שדרוג טעים! 🥒🥕");
+            var ownerId = existing.UserId;
+            BroadcastActivity($"{GetUserName()} ✏️ עדכן/ה סלט: '{saled.Name}'. שדרוג טעים! 🥒🥕", new [] { ownerId }, true);
         }
 
-        private async void BroadcastActivity(string message)
+        private async void BroadcastActivity(string message, IEnumerable<int> userIdsToNotify, bool notifyAdmins)
         {
-            var connections = Hubs.ActivityHub.GetConnectionsForUser(activeUserId);
-            var connList = connections.Any() ? string.Join(",", connections) : "<none>";
-            var debugMsg = $"BroadcastActivity: userId={activeUserId}, connections={connList}, message={message}";
+            var targetConnections = new HashSet<string>();
+
+            if (userIdsToNotify != null)
+            {
+                foreach (var conn in Hubs.ActivityHub.GetConnectionsForUsers(userIdsToNotify))
+                    targetConnections.Add(conn);
+            }
+
+            if (notifyAdmins)
+            {
+                foreach (var conn in Hubs.ActivityHub.GetAdminConnections())
+                    targetConnections.Add(conn);
+            }
+
+            var connList = targetConnections.Any() ? string.Join(",", targetConnections) : "<none>";
+            var debugMsg = $"BroadcastActivity: message={message}, targetConnections={connList}, userIdsToNotify=[{string.Join(",", userIdsToNotify ?? Array.Empty<int>())}], notifyAdmins={notifyAdmins}";
             Console.WriteLine(debugMsg);
 
-            if (connections.Any())
+            if (targetConnections.Any())
             {
-                await hubContext.Clients.Clients(connections).SendAsync("ReceiveActivity", message);
-                await hubContext.Clients.Clients(connections).SendAsync("DebugLog", $"BroadcastActivity: Sent to {connections.Count} connections.");
+                await hubContext.Clients.Clients(targetConnections).SendAsync("ReceiveActivity", message);
+                await hubContext.Clients.Clients(targetConnections).SendAsync("DebugLog", $"BroadcastActivity: Sent to {targetConnections.Count} connection(s).");
             }
             else
             {
                 await hubContext.Clients.All.SendAsync("ReceiveActivity", message);
-                await hubContext.Clients.All.SendAsync("DebugLog", $"BroadcastActivity: No connections found for userId={activeUserId}, broadcasting to all.");
+                await hubContext.Clients.All.SendAsync("DebugLog", "BroadcastActivity: No active targeted connections, broadcasting all.");
             }
         }
 
