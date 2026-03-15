@@ -2188,11 +2188,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\1\\Desktop\\dotnet-webapi\\dotnet-webapi\\Saled\\1.csproj",
+      "projectUniqueName": "D:\\Users\\1\\Downloads\\dotnet-webapi\\Saled\\1.csproj",
       "projectName": "1",
-      "projectPath": "C:\\Users\\1\\Desktop\\dotnet-webapi\\dotnet-webapi\\Saled\\1.csproj",
+      "projectPath": "D:\\Users\\1\\Downloads\\dotnet-webapi\\Saled\\1.csproj",
       "packagesPath": "C:\\Users\\1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\1\\Desktop\\dotnet-webapi\\dotnet-webapi\\Saled\\obj\\",
+      "outputPath": "D:\\Users\\1\\Downloads\\dotnet-webapi\\Saled\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
