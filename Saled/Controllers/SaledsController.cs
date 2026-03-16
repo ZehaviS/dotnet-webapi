@@ -19,6 +19,20 @@ namespace Controllers
         [HttpGet]
         public ActionResult<List<Saleds>> GetAll([FromQuery] int? userId)
         {
+            // בדיקת הרשאות: משתמש רגיל רואה רק את הפריטים של עצמו
+            bool isAdmin = User.HasClaim("type", "Admin") || User.HasClaim("ClearanceLevel", "1");
+            int? currentUserId = null;
+            var idClaim = User?.FindFirst("Id")?.Value;
+            if (int.TryParse(idClaim, out int parsedId))
+                currentUserId = parsedId;
+
+            if (!isAdmin)
+            {
+                if (currentUserId.HasValue)
+                    return _service.GetByUser(currentUserId.Value);
+                return Forbid();
+            }
+            // Admin יכול לראות הכל או לפי userId
             if (userId.HasValue)
                 return _service.GetByUser(userId.Value);
             return _service.GetAll();
@@ -30,6 +44,11 @@ namespace Controllers
             var saled = _service.Get(id);
             if (saled == null)
                 return NotFound();
+
+            bool isAdmin = User.HasClaim("type", "Admin") || User.HasClaim("ClearanceLevel", "1");
+            var idClaim = User?.FindFirst("Id")?.Value;
+            if (!isAdmin && saled.UserId.ToString() != idClaim)
+                return Forbid();
 
             return saled;
         }
@@ -82,6 +101,12 @@ namespace Controllers
         {
             var userIdClaim = User?.FindFirst("Id")?.Value ?? "<none>";
             var userNameClaim = User?.FindFirst("username")?.Value ?? "<none>";
+            bool isAdmin = User.HasClaim("type", "Admin") || User.HasClaim("ClearanceLevel", "1");
+            var existing = _service.Get(id);
+            if (existing == null)
+                return NotFound();
+            if (!isAdmin && existing.UserId.ToString() != userIdClaim)
+                return Forbid();
             Console.WriteLine($"SaledsController.Update called for id={id} by user={userIdClaim} ({userNameClaim}), content-type={Request.ContentType}");
             Saleds s = null;
             if (Request.HasFormContentType)
@@ -130,13 +155,6 @@ namespace Controllers
                 return BadRequest("ID mismatch");
             }
 
-            var existing = _service.Get(id);
-            if (existing == null)
-            {
-                Console.WriteLine($"SaledsController.Update: salad not found id={id}");
-                return NotFound();
-            }
-
             // Preserve owner / user id to ensure permission checks in the service work correctly.
             s.UserId = existing.UserId;
 
@@ -150,6 +168,11 @@ namespace Controllers
             var saled = _service.Get(id);
             if (saled == null)
                 return NotFound();
+
+            bool isAdmin = User.HasClaim("type", "Admin") || User.HasClaim("ClearanceLevel", "1");
+            var idClaim = User?.FindFirst("Id")?.Value;
+            if (!isAdmin && saled.UserId.ToString() != idClaim)
+                return Forbid();
 
             _service.Delete(id);
             return Content(_service.Count.ToString());
